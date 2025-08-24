@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Vector Operations With Numpy</title>
+    <title>Linear Algebra With Numpy</title>
 
-    <meta name="description" content="Page Name...">
+    <meta name="description" content="Linear Algebra With Numpy academic blog page article">
 
-    <meta property="og:title" content="Vector Operations With Numpy Article">
-    <meta property="og:type" content="Blog Post">
+    <meta property="og:title" content="Linear Algebra With Numpy Article">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
-    <meta property="og:image:alt" content="Preview of Vector Operations With Numpy Article">
+    <meta property="og:image:alt" content="Preview of Linear Algebra With Numpy Article">
 
     <link rel="icon" href="../media/icon.png" sizes="any">
     <link rel="apple-touch-icon" href="../media/icon.png">
@@ -59,8 +59,8 @@
     <main class="max-w-5xl mx-auto py-12 px-4 min-h-screen">
         <article id="article" class="prose prose-neutral dark:prose-invert max-w-none scroll-mt-[20vh]">
             <h1>Basic Vector Operations with NumPy</h1>
-<p>Using Numpy in Preparation for Pytorch</p>
-<p>Sources: 3b1b and <a href="https://github.com/ageron/handson-ml3/blob/main/math_linear_algebra.ipynb">https://github.com/ageron/handson-ml3/blob/main/math_linear_algebra.ipynb</a></p>
+<p>Using Numpy in Preparation for Pytorch
+Sources: 3b1b and <a href="https://github.com/ageron/handson-ml3/blob/main/math_linear_algebra.ipynb">https://github.com/ageron/handson-ml3/blob/main/math_linear_algebra.ipynb</a></p>
 <blockquote>
 <p><strong>Tags:</strong> Theory, Machine Learning</p>
 </blockquote>
@@ -85,17 +85,16 @@ print("+", v)
 print("-"*10)
 u + v
 </code></pre>
-<img class="m-auto" src="../media/article-images/vector_operations_with_numpy/addition.png" width="500" alt="graph">
+<img class="m-auto" src="../media/article-images/linear_algebra_with_numpy/addition.png" width="500" alt="alt-text">
 <p class="text-center m-auto italic">Figure 1. A visualization of vector addition</p>
 
 <p>Subtracting a vector can be thought of as adding a negative vector.</p>
 <h2>Scalar Multiplication</h2>
-<p>(using Numpy)
-e.g. x * <strong>v</strong> = [...]</p>
+<p>(using Numpy) e.g. x * <strong>v</strong> = [...]</p>
 <h2>Dot Product</h2>
 <p>u • v = ||u|| * ||v|| * cos(θ), where θ is the angle between the vectors.</p>
 <p>OR</p>
-<p>u • v = (u<sub>1</sub> * v<sub>1</sub>) + (u<sub>2</sub> * v<sub>2</sub>) + ... + (u<sub>k</sub> * v<sub>k</sub>)</p>
+<p>u • v = (u1 * v1) + (u2 * v2) + ... + (uk * vk)</p>
 <p>where u and v are vectors of length k.</p>
 <p>For example, [2 4 6] • [2 4 6] = (2 * 2) + (4 * 4) + (6 * 6) = 4 + 16 + 36 = 56</p>
 <pre><code># Using lists
@@ -111,7 +110,7 @@ print(u.dot(v))
 print(v.dot(u))
 </code></pre>
 <h2>Norm</h2>
-<p>Equal to the square root of the sum of the squares of of all the components of <strong>u</strong>. Also equal to the square root of the dot product of <strong>u</strong>.</p>
+<p>Equal to the square root of the sum of the squares of all the components of <strong>u</strong>. Also equal to the square root of the dot product of <strong>u</strong>.</p>
 <pre><code># Lists
 u = [2, 5]
 sum(ui ** 2 for ui in u) ** 0.5
@@ -134,12 +133,12 @@ print("      =", theta * 180 / np.pi, "degrees")
 </code></pre>
 <h2>Projection</h2>
 <p>The projection of vector v onto vector u is defined as:</p>
-<p>(u • v) / ||u||<sup>2</sup> * <strong>u</strong></p>
+<p>(u • v) / ||u||2 * <strong>u</strong></p>
 <p>and can be thought of as laying <strong>v</strong> on top of <strong>u</strong>.</p>
 <pre><code>(u.dot(v) / np.linalg.norm(u) ** 2) * u
 </code></pre>
-<img class="m-auto" src="../media/article-images/vector_operations_with_numpy/projection.png" width="500" alt="graph">
-<p class="text-center m-auto italic">Figure 1. The projection of a vector v onto vector u</p>
+<img class="m-auto" src="../media/article-images/linear_algebra_with_numpy/projection.png" width="500" alt="Projection of vector v onto vector u">
+<p class="text-center m-auto italic">Figure 2. The projection of a vector v onto vector u</p>
 
         </article>
     </main>
