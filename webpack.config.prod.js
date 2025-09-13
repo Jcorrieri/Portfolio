@@ -8,9 +8,10 @@ module.exports = merge(common, {
     new CopyPlugin({
       patterns: [
         { from: 'media', to: 'media' },
-        { from: 'css', to: 'css' },
         { from: '404.html', to: '404.html' },
         { from: 'site.webmanifest', to: 'site.webmanifest' },
+        { from: 'robots.txt', to: 'robots.txt'},
+        { from: 'site.webmanifest', to: 'site.webmanifest'}
       ],
     }),
   ],
