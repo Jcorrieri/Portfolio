@@ -15,5 +15,5 @@ module.exports = merge(common, {
       ],
     }),
   ],
-  ouput: { publicPath: "/Portfolio/"}
+  output: { publicPath: "/Portfolio/"}
 });
