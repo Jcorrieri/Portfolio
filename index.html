@@ -160,7 +160,7 @@
               class="w-full h-full rounded-md object-cover"
               poster="./media/mrc_poster.png"
             >
-            <source src="https://www.dropbox.com/scl/fi/vzkqopndb4neu2392cpr3/MRCC_4A_SD89.mp4?rlkey=mvivhnxejpxzu52uxqgqlukkp&st=h7kaszmh&raw=1" type="video/mp4" />
+            <source src="https://www.dropbox.com/scl/fi/ce7aima1ojrkq7wmcnyrn/size25_seed1.mp4?rlkey=hjj2y4drpd6tq6cayzo2x9mxp&st=2994br7h&raw=1" type="video/mp4" />
             Your browser does not support the video tag.
             </video>
           </div>
@@ -191,7 +191,7 @@
         </h3>
 
         <p class="text-gray-700 dark:text-gray-300 mb-4">
-          This work presents a Deep Reinforcement Learning (DRL) framework for coordinating a team of robots to explore an unknown grid-world environment while maintaining a connected communication network. The proposed system adapts a multi-agent actor-critic algorithm (MAPPO) using Ray RLlib’s legacy API and PettingZoo (Gymnasium) for environment modeling. Inspired by a MATLAB-based area coverage example, this project extends the task to include communication constraints by modifying the reward function. Empirical results demonstrate that the learned policy achieves moderate to high success rates in exploration while preserving network connectivity, and shows potential for generalization to larger teams.
+          This is a Deep Reinforcement Learning (DRL) framework for multi-robot coverage using Proximal Policy Optimization (PPO) with a centralized critic and decentralized actors (CTDE framework), which maintains connectivity during exploration. Following this framework, each robot learns a local policy based on partial observations, such as LiDAR scans, the visited cell history, and the states of nearby robots, while benefiting from centralized value estimation during training. The combination of convolutional feature extraction, centralized value estimation, and communication-aware reward shaping enables consistently high coverage and connectivity among multiple robots. This approach scales effectively with team size: we demonstrated successful training with up to 20 robots, and thanks to the decentralized policy design, the learned models generalize seamlessly to larger teams, achieving reliable performance with up to 50 robots at test time.
         </p>
 
         <p class="text-gray-400 text-sm italic">(GitHub link coming soon)</p>
