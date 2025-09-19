@@ -5,7 +5,7 @@ node_modules
 .idea
 .editorconfig
 *.drawio
-*.iml
+./dist
 
 # Logs
 logs
