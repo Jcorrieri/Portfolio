@@ -6,6 +6,7 @@ node_modules
 .editorconfig
 *.drawio
 ./dist
+Portfolio.iml
 
 # Logs
 logs

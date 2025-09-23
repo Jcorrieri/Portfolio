@@ -205,7 +205,14 @@
           This is a Deep Reinforcement Learning (DRL) framework for multi-robot coverage using Proximal Policy Optimization (PPO) with a centralized critic and decentralized actors (CTDE framework), which maintains connectivity during exploration. Following this framework, each robot learns a local policy based on partial observations, such as LiDAR scans, the visited cell history, and the states of nearby robots, while benefiting from centralized value estimation during training. The combination of convolutional feature extraction, centralized value estimation, and communication-aware reward shaping enables consistently high coverage and connectivity among multiple robots. This approach scales effectively with team size: we demonstrated successful training with up to 20 robots, and thanks to the decentralized policy design, the learned models generalize seamlessly to larger teams, achieving reliable performance with up to 50 robots at test time.
         </p>
 
-        <p class="text-gray-400 text-sm italic">(GitHub link coming soon)</p>
+        <a
+          href="https://github.com/Jcorrieri/multiagent-gridworld"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-md shadow hover:bg-gray-200 dark:hover:bg-gray-600 transition text-sm mt-2"
+        >
+          <img class="mr-2" src="https://img.icons8.com/ios-glyphs/30/github.png" alt="github"/> View on GitHub
+        </a>
       </div>
 
       <div class="bg-white border-gray-400 p-6 rounded-lg shadow-sm border dark:bg-gray-800 dark:border-gray-700">
