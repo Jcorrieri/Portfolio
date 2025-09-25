@@ -90,7 +90,7 @@ const content = `<!DOCTYPE html>
     </header>
 
     <main class="max-w-5xl mx-auto py-12 px-4 min-h-screen">
-        <article id="article" class="prose prose-neutral dark:prose-invert max-w-none scroll-mt-[20vh]">
+        <article id="article" class="prose prose-neutral dark:prose-invert max-w-none scroll-mt-[20vh] prose-pre:bg-neutral-200 prose-pre:text-neutral-900 dark:prose-pre:bg-gray-950 dark:prose-pre:text-gray-300">
             ${cleanHTML}
         </article>
     </main>
@@ -110,8 +110,8 @@ console.log("HTML file written to ", outputPath);
 
 const catMap = new Map();
 catMap.set('cv', '<li class="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded-full">Computer Vision</li>');
-catMap.set('linalg', '<li class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">Linear Algebra</li>');
-catMap.set('machine learning', '<li class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">Machine Learning</li>');
+catMap.set('math', '<li class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">Mathematics</li>');
+catMap.set('ml', '<li class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">Machine Learning</li>');
 catMap.set('rl', '<li class="bg-gray-200 text-gray-900 text-xs font-medium px-2 py-1 rounded-full">Reinforcement Learning</li>');
 catMap.set('web development', '<li class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded-full">Web Development</li>');
 

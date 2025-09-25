@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>QR Decomposition</title>
+    <title>Qr Decomposition With Numpy</title>
 
-    <meta name="description" content="Qr academic blog page article">
+    <meta name="description" content="Qr Decomposition With Numpy academic blog page article">
 
-    <meta property="og:title" content="Qr Article">
+    <meta property="og:title" content="Qr Decomposition With Numpy Article">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
-    <meta property="og:image:alt" content="Preview of Qr Article">
+    <meta property="og:image:alt" content="Preview of Qr Decomposition With Numpy Article">
 
     <link rel="icon" href="../media/icon.png" sizes="any">
     <link rel="apple-touch-icon" href="../media/icon.png">
@@ -57,18 +57,38 @@
     </header>
 
     <main class="max-w-5xl mx-auto py-12 px-4 min-h-screen">
-        <article id="article" class="prose prose-neutral dark:prose-invert max-w-none scroll-mt-[20vh]">
+        <article id="article" class="prose prose-neutral dark:prose-invert max-w-none scroll-mt-[20vh] prose-pre:bg-neutral-200 prose-pre:text-neutral-900 dark:prose-pre:bg-gray-950 dark:prose-pre:text-gray-300">
             <h1>QR Decomposition with NumPy</h1>
 <p>Using Numpy for QR Decomposition and RQ Decomposition</p>
 <blockquote>
-<p><strong>Tags:</strong> Linear Algebra, Computer Vision</p>
+<p><strong>Tags:</strong> Mathematics, Computer Vision</p>
 </blockquote>
 <hr>
 <h2>Definition</h2>
-<p>QR decomposition is a process of taking any real matrix, A, and representing it as an orthogonal matrix, Q, and an upper-triangular matrix R, i.e. A = QR.</p>
+<p>QR decomposition is a process of taking any real matrix, A, and representing it as an orthogonal matrix Q and an upper-triangular matrix R, i.e. A = QR.</p>
 <p>An orthogonal matrix is one such that all its column vectors are perpendicular to each other and of unit norm, and an upper-triangular matrix has non-zero elements only on or above the diagonal. </p>
 <p>This is useful in a number of applications, including camera calibration in computer vision. </p>
 <p>The QR decomposition can be computed using the Gram-Schmidt process.</p>
+<h2>Gram-Schmidt</h2>
+<p>Goal: Represent A as a multiplication of an orthogonal matrix Q and an upper-triangular matrix R. </p>
+<p>Let Q = [q1, q2, q3], where qi is a 3x1 vector. Set q1 = a1 / ||a1|| to start, then calculate the other vectors. Notice how we divide by the norm of a1, ||a1||, so that q1 has unit-norm.</p>
+<p>R contains the column vectors that takes our orthonormal vectors in Q back to their corresponding vectors in A. To get a1 back from q1, we simply multiply q1 by the norm of a1 and zero out the other vectors. Therefore, set the top-left element of R to be the norm of a1. </p>
+<p>We need q2 to be perpendicular to a1. We can get q2 by using the perpendicular component of the projection of a2 onto q1, where the projection is given by Proj_q1(a2) = &lt;a2 ⋅ q1&gt;q1.</p>
+<img class="m-auto" src="../media/article-images/qr_decomposition_with_numpy/q2.png" width="340" alt="alt-text">
+
+<p>The perpendicular component, a1_perp, is equal to the original vector a2 minus the projection component, or a2 - Proj_q1(a2).</p>
+<p>This gives us our perpendicular vector to q1. Since Q consists of orthonormal vectors, divide a1_perp by its norm to get q2. </p>
+<p>q2 = a1_perp / ||a1_perp||</p>
+<p>To get a2 back from a linear combination of q1, q2, and q3, we need to multiply q1 by &lt;a2 ⋅ q1&gt;, then add q2 scaled by the norm of ||a1_perp||. </p>
+<p>Then, for q3, we need a vector that is perpendicular to both q1 and q2, which can be visualized in three-dimensional space. Therefore, repeat the prior steps, but calculate the projection of q3 onto both q1 and q2.</p>
+<img class="m-auto" src="../media/article-images/qr_decomposition_with_numpy/q3.png" width="340" alt="alt-text">
+
+<p>a3_perp = &lt;a3 * q1&gt;q1 - &lt;a3 * q2&gt;q2</p>
+<p>q3 = a3_perp / ||a3_perp||</p>
+<p>To get a3 back from a linear combinations of the vectors in Q, we add &lt;a3 * q1&gt;q1, &lt;a3 * q2&gt;q2, and ||a3||q3, i.e.</p>
+<p>a3 = &lt;a3 * q1&gt;q1 + &lt;a3 * q2&gt;q2 + ||a3||q3</p>
+<p>Thus, the final column of R will contain the scalars that multiply the corresponding vectors of Q to get a3.</p>
+<p>This leaves us with two matrices, Q and R, such that A = QR.</p>
 <h2>Code</h2>
 <pre><code>M = np.random.rand((3, 3))
 
@@ -102,9 +122,11 @@ for i in range(0, M.shape[1]):
 <p>(M^(−1))^(−1) = (QU)^(−1)</p>
 <p>M = U^(−1)Q</p>
 <p>Since U is upper-triangular, so is U^(−1). Similarly, since Q is orthogonal, so is
-Q^(−1) = QT . Therefore,
-• K = U^(−1)
-• R = QT</p>
+Q^(−1) = QT . Therefore,</p>
+<ul>
+<li>K = U^(−1)</li>
+<li>R = QT</li>
+</ul>
 <pre><code>M_inv = np.linalg.inv(M)
 
 Q = np.zeros((3, 3))
