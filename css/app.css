@@ -29,6 +29,9 @@
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-gray-900: oklch(21% 0.034 264.665);
+    --color-gray-950: oklch(13% 0.028 261.692);
+    --color-neutral-200: oklch(92.2% 0 0);
+    --color-neutral-900: oklch(20.5% 0 0);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -1401,6 +1404,30 @@
         @media (hover: hover) {
           color: var(--color-blue-400);
         }
+      }
+    }
+  }
+  .prose-pre\:bg-neutral-200 {
+    & :is(:where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+      background-color: var(--color-neutral-200);
+    }
+  }
+  .prose-pre\:text-neutral-900 {
+    & :is(:where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+      color: var(--color-neutral-900);
+    }
+  }
+  .dark\:prose-pre\:bg-gray-950 {
+    &:where(.dark, .dark *) {
+      & :is(:where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+        background-color: var(--color-gray-950);
+      }
+    }
+  }
+  .dark\:prose-pre\:text-gray-300 {
+    &:where(.dark, .dark *) {
+      & :is(:where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+        color: var(--color-gray-300);
       }
     }
   }
