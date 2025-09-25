@@ -1,51 +1,18 @@
-const fs = require('fs');
-const path = require('path');
-
-const marked = require('marked');
-
-const createDOMPurify = require('dompurify');
-const { JSDOM } = require('jsdom');
-
-const window = new JSDOM('').window;
-const DOMPurify = createDOMPurify(window);
-
-const filename = process.argv[2]
-const inputPath = path.join(__dirname, "../articles/markdown", filename + '.md');
-const outputPath = path.join(__dirname, "../articles/", filename + ".html");
-
-const categories = process.argv[3]
-    .split(",")
-    .map(cat => cat.trim().toLowerCase());
-
-const keywords = process.argv[4]
-    .split(',')
-    .map(keyword => keyword.trim().toLowerCase());
-
-const prettyTitle = filename
-    .split('_')
-    .map(tok => tok[0].toUpperCase() + tok.substring(1))
-    .toString()
-    .replaceAll(",", " ");
-
-const markdown = fs.readFileSync(inputPath, "utf-8").replaceAll("../../", "../");
-const rawHTML = marked.parse(markdown);
-const cleanHTML = DOMPurify.sanitize(rawHTML);
-
-const content = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="no-js scroll-smooth" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>${prettyTitle}</title>
+    <title>Qr</title>
 
-    <meta name="description" content="${prettyTitle} academic blog page article">
+    <meta name="description" content="Qr academic blog page article">
 
-    <meta property="og:title" content="${prettyTitle} Article">
+    <meta property="og:title" content="Qr Article">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
-    <meta property="og:image:alt" content="Preview of ${prettyTitle} Article">
+    <meta property="og:image:alt" content="Preview of Qr Article">
 
     <link rel="icon" href="../media/icon.png" sizes="any">
     <link rel="apple-touch-icon" href="../media/icon.png">
@@ -91,7 +58,76 @@ const content = `<!DOCTYPE html>
 
     <main class="max-w-5xl mx-auto py-12 px-4 min-h-screen">
         <article id="article" class="prose prose-neutral dark:prose-invert max-w-none scroll-mt-[20vh]">
-            ${cleanHTML}
+            <h1>QR Decomposition with NumPy</h1>
+<p>Using Numpy for QR Decomposition and RQ Decomposition</p>
+<blockquote>
+<p><strong>Tags:</strong> Linear Algebra, Computer Vision</p>
+</blockquote>
+<hr>
+<h2>Definition</h2>
+<p>QR decomposition is a process of taking any real matrix, A, and representing it as an orthogonal matrix, Q, and an upper-triangular matrix R, i.e. A = QR.</p>
+<p>An orthogonal matrix is one such that all its column vectors are perpendicular to each other and of unit norm, and an upper-triangular matrix has non-zero elements only on or above the diagonal. </p>
+<p>This is useful in a number of applications, including camera calibration in computer vision. </p>
+<p>The QR decomposition can be computed using the Gram-Schmidt process.</p>
+<h2>Code</h2>
+<pre><code>M = np.random.rand((3, 3))
+
+Q = np.zeros((3, 3))
+R = np.zeros((3, 3))
+for i in range(0, M.shape[1]):
+  ai = M[:, i]
+  ai_perp = ai
+
+  for j in range(0, i):
+    qj = Q[:, j]
+    dot_prod = (ai @ qj)
+    ai_perp -=  dot_prod * qj
+    R[j, i] = dot_prod
+
+  ai_perp_norm = np.linalg.norm(ai_perp)
+  R[i, i] = ai_perp_norm
+  q = (ai_perp / ai_perp_norm)
+  Q[:, i] = q[:]
+</code></pre>
+<h2>Camera Calibration</h2>
+<p>Given a calibration matrix P, we can use QR decomposition to find the intrinsic parameter matrix K and the extrinsic parameter matrix R. </p>
+<p>The camera calibration matrix P contains the 3x3 upper-left submatrix M, where M = KR. K and R can be dervied by taking the QR decomposition of M^-1. Techically, this is taking the RQ decomposition of M. </p>
+<p>Note that the "R" matrix in QR decomposition does not correspond with the extrinsic parameter matrix "R" in camera calibration. To avoid confusion, I will refer to the upper-triangular matrix R as U during the calculations. </p>
+<ul>
+<li>Q: Orthogonal Matrix</li>
+<li>U: Upper-Triangular Matrix</li>
+</ul>
+<p>Want: M = KR = UQ </p>
+<p>M^(−1) = QU</p>
+<p>(M^(−1))^(−1) = (QU)^(−1)</p>
+<p>M = U^(−1)Q</p>
+<p>Since U is upper-triangular, so is U^(−1). Similarly, since Q is orthogonal, so is
+Q^(−1) = QT . Therefore,
+• K = U^(−1)
+• R = QT</p>
+<pre><code>M_inv = np.linalg.inv(M)
+
+Q = np.zeros((3, 3))
+R = np.zeros((3, 3))
+for i in range(0, M_inv.shape[1]):
+  ai = M_inv[:, i]
+  ai_perp = ai
+
+  for j in range(0, i):
+    qj = Q[:, j]
+    dot_prod = (ai @ qj)
+    ai_perp -=  dot_prod * qj
+    R[j, i] = dot_prod
+
+  ai_perp_norm = np.linalg.norm(ai_perp)
+  R[i, i] = ai_perp_norm
+  q = (ai_perp / ai_perp_norm)
+  Q[:, i] = q[:]
+
+K = np.linalg.inv(R)
+R = Q.T
+</code></pre>
+
         </article>
     </main>
 
@@ -103,37 +139,3 @@ const content = `<!DOCTYPE html>
 
 </body>
 </html>
-`
-
-fs.writeFileSync(outputPath, content);
-console.log("HTML file written to ", outputPath);
-
-const catMap = new Map();
-catMap.set('cv', '<li class="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded-full">Computer Vision</li>');
-catMap.set('linalg', '<li class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">Linear Algebra</li>');
-catMap.set('machine learning', '<li class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">Machine Learning</li>');
-catMap.set('rl', '<li class="bg-gray-200 text-gray-900 text-xs font-medium px-2 py-1 rounded-full">Reinforcement Learning</li>');
-catMap.set('web development', '<li class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded-full">Web Development</li>');
-
-const galleryCode = `<a href="./articles/${filename}.html"
-   target="_self"
-   class="article-link"
-   data-title="${prettyTitle.toLowerCase()}"
-   data-keywords="${keywords}"
-   data-categories="${categories}"
->
-    <div class="bg-white border-gray-300 rounded-lg shadow-sm border hover:cursor-pointer hover:opacity-85 hover:scale-102 transition-transform duration-200 dark:bg-gray-800 dark:border-gray-700 overflow-clip">
-        <img src="./media/article-images/${filename}/${filename}.png" alt="Preview 2" class="w-full aspect-[16/9] h-48 object-cover" />
-        <div class="text-xs px-4 pt-4">
-            <ul class="flex flex-wrap gap-2">
-                ${categories.map(cat => catMap.get(cat)).toString().replaceAll(',', '\n')}
-            </ul>
-        </div>
-        <div class="p-4">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-white text-wrap">${prettyTitle}</h2>
-        </div>
-    </div>
-</a>
-`
-
-console.log(galleryCode);
