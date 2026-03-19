@@ -16,11 +16,7 @@
     .nav-link.active { color: #06b6d4; }
     .skill-chip { cursor: pointer; user-select: none; }
     .skill-chip.active { border-color: rgba(6,182,212,0.6) !important; box-shadow: 0 0 8px rgba(6,182,212,0.2); }
-    .highlight-pulse {
-      outline: 2px solid rgba(6,182,212,0.7);
-      outline-offset: 3px;
-      transition: outline 0.4s ease;
-    }
+    .scroll-highlight { border-color: rgba(6,182,212,0.5) !important; transition: border-color 0.3s ease; }
     #skill-popover { transition: opacity 0.1s ease; }
   </style>
 </head>
@@ -35,12 +31,12 @@
   <!-- Sticky Nav -->
   <nav class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800/50">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-      <span class="text-md font-bold tracking-[0.3em] text-gray-600 uppercase">JC</span>
+      <span class="text-sm font-bold tracking-[0.3em] text-gray-600 uppercase">JC</span>
       <div class="flex gap-5 md:gap-8">
-        <a href="#skills"     class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Skills</a>
-        <a href="#education"  class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Education</a>
-        <a href="#experience" class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Experience</a>
-        <a href="#projects"   class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Projects</a>
+        <a href="#skills"     class="nav-link text-xs font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Skills</a>
+        <a href="#education"  class="nav-link text-xs font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Education</a>
+        <a href="#experience" class="nav-link text-xs font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Experience</a>
+        <a href="#projects"   class="nav-link text-xs font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Projects</a>
       </div>
     </div>
   </nav>
@@ -56,7 +52,7 @@
     <header class="mb-24 border-l-4 border-cyan-500 pl-8">
       <h1 class="text-4xl font-bold tracking-tight text-white mb-2 uppercase">Jacomo Corrieri</h1>
       <div class="text-lg text-gray-400 max-w-4xl leading-relaxed">
-        <p class="mb-2">MS CS @ UF — ML research &amp; full-stack engineering. Plus, I play the drums!</p>
+        <p class="mb-2">MS CS @ UF | ML research &amp; full-stack engineering. Plus, I play the drums!</p>
         <p class="flex flex-wrap items-center gap-x-2 text-sm">
           Currently building with
           <span class="inline-flex items-center gap-1 text-[#00ADD8] font-bold"><img src="https://cdn.simpleicons.org/go/00ADD8" class="w-4 h-4" alt="">Go</span>,
@@ -77,9 +73,9 @@
     <section id="skills" class="mb-24 scroll-mt-16">
       <div class="flex items-center gap-4 mb-3">
         <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold">Skills</h2>
-        <span class="text-[10px] text-gray-600 font-bold tracking-wider uppercase border border-gray-700 rounded px-2 py-0.5">click a chip to see links</span>
+        <span class="text-xs text-gray-600 font-bold tracking-wider uppercase border border-gray-700 rounded px-2 py-0.5">click a chip to see links</span>
       </div>
-      <p class="text-[11px] text-gray-600 mb-10">Linked to projects, coursework, and experience where applicable.</p>
+      <p class="text-sm text-gray-600 mb-10">Linked to projects, coursework, and experience where applicable.</p>
 
       <div id="skills-container" class="space-y-8"></div>
     </section>
@@ -100,16 +96,16 @@
             <div class="flex-1">
               <div class="flex flex-wrap items-center gap-x-4 mb-1">
                 <h3 class="text-lg font-bold text-white uppercase tracking-tight">University of Florida</h3>
-                <span class="px-2 py-0.5 rounded border border-cyan-500/30 text-[9px] text-cyan-400 font-bold uppercase tracking-widest">Master of Science</span>
+                <span class="px-2 py-0.5 rounded border border-cyan-500/30 text-xs text-cyan-400 font-bold uppercase tracking-widest">Master of Science</span>
               </div>
-              <p class="text-gray-400 text-xs font-bold mb-4">Computer Science &nbsp;|&nbsp; 2025 — Present &nbsp;|&nbsp; GPA: 3.66</p>
+              <p class="text-gray-400 text-sm font-bold mb-4">Computer Science &nbsp;|&nbsp; 2025 — Present &nbsp;|&nbsp; GPA: 3.66</p>
               <div>
-                <p class="text-[9px] text-gray-600 uppercase tracking-widest font-bold mb-2">Relevant Coursework</p>
+                <p class="text-xs text-gray-600 uppercase tracking-widest font-bold mb-2">Relevant Coursework</p>
                 <div class="flex flex-wrap gap-2">
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Computer Vision</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">ML Engineering</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Analysis of Algorithms</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Math for Intelligent Systems</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Computer Vision</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">ML Engineering</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Analysis of Algorithms</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Math for Intelligent Systems</span>
                 </div>
               </div>
             </div>
@@ -121,40 +117,45 @@
           <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-gray-600 bg-gray-900"></div>
           <div class="flex flex-col md:flex-row gap-6">
             <div class="shrink-0">
-              <img src="https://www.unf.edu/brand/images/UNF_vertical_white.png" alt="UNF Logo" class="h-16 w-auto object-contain opacity-60">
+              <img src="https://www.unf.edu/brand/images/UNF_vertical_white.png" alt="UNF Logo" class="h-18 w-16 object-contain opacity-60">
             </div>
             <div class="flex-1">
               <div class="flex flex-wrap items-center gap-x-4 mb-1">
                 <h3 class="text-lg font-bold text-white uppercase tracking-tight opacity-80">University of North Florida</h3>
-                <span class="px-2 py-0.5 rounded border border-gray-700 text-[9px] text-gray-500 font-bold uppercase tracking-widest">Bachelor of Science</span>
+                <span class="px-2 py-0.5 rounded border border-gray-700 text-xs text-gray-500 font-bold uppercase tracking-widest">Bachelor of Science</span>
               </div>
-              <p class="text-gray-400 text-xs font-bold mb-3">Computer Science &nbsp;|&nbsp; Minors in Math &amp; IB &nbsp;|&nbsp; 2021 — 2025 &nbsp;|&nbsp; GPA: 3.99</p>
+              <p class="text-gray-400 text-sm font-bold mb-3">Computer Science &nbsp;|&nbsp; Minors in Math &amp; IB &nbsp;|&nbsp; 2021 — 2025 &nbsp;|&nbsp; GPA: 3.99</p>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 mb-4">
-                <div class="flex items-center gap-2 text-[11px] text-gray-500">
-                  <span class="text-cyan-500 text-xs">▹</span> Summa Cum Laude &nbsp;|&nbsp; Hicks Honors College
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                  <span class="text-cyan-500 shrink-0">▹</span> Summa Cum Laude | Hicks Honors College
                 </div>
-                <div class="flex items-center gap-2 text-[11px] text-gray-500">
-                  <span class="text-cyan-500 text-xs">▹</span>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                  <span class="text-cyan-500 shrink-0">▹</span> 
+                  <a class="hover:underline" href="https://www.skku.edu/eng/index.do" target="_blank">Semester Abroad @ SKKU in Seoul, South Korea</a>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                  <span class="text-cyan-500 shrink-0">▹</span>
                   <a class="hover:underline" href="https://www.unf.edu/newsroom/2024/11/NestforAwhile-Competition.html" target="_blank">2nd Place @ NestForAWhile Programming Competition</a>
                 </div>
-                <div class="flex items-center gap-2 text-[11px] text-gray-500">
-                  <span class="text-cyan-500 text-xs">▹</span>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                  <span class="text-cyan-500 shrink-0">▹</span>
                   <a class="hover:underline" href="https://www.linkedin.com/posts/ian-dahlin_im-thrilled-to-announce-that-our-team-just-activity-7323414255410585600-k6hc" target="_blank">Award Winner @ 2025 SoC Symposium</a>
                 </div>
               </div>
               <div>
-                <p class="text-[9px] text-gray-600 uppercase tracking-widest font-bold mb-2">Relevant Coursework</p>
+                <p class="text-xs text-gray-600 uppercase tracking-widest font-bold mb-2">Relevant Coursework</p>
                 <div class="flex flex-wrap gap-2">
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">ML with Graphs</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Intro to AI</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Data Structures</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Operating Systems</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Databases</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Software Engineering</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">ML with Graphs</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Intro to AI</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Data Structures</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Operating Systems</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Databases</span>
+                  <span class="text-xs px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Software Engineering</span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         </div>
 
       </div>
@@ -164,82 +165,84 @@
     <section id="experience" class="mb-24 scroll-mt-16">
       <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold mb-12">Experience</h2>
 
-      <div class="space-y-8">
+      <div class="relative ml-4 md:ml-12 border-l-2 border-gray-800 pl-8 pb-4">
 
-        <!-- UFIT Internship -->
-        <div id="exp-ufit" class="border border-gray-800 bg-gray-800/20 rounded-lg p-6 hover:border-cyan-500/30 transition-all duration-500">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
-            <div>
-              <div class="flex items-center gap-3 mb-1">
-                <h3 class="text-base font-bold text-white uppercase tracking-tight">Research Computing Support Intern</h3>
-                <span class="px-2 py-0.5 rounded bg-cyan-700/20 border border-cyan-500/30 text-[9px] text-cyan-400 font-black uppercase tracking-widest">Current</span>
+        <!-- UFIT -->
+        <div id="exp-ufit" class="relative mb-16 rounded-lg transition-all duration-500">
+          <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-cyan-500 bg-gray-900 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+          <div class="flex-1">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+              <div class="flex flex-wrap items-center gap-x-4">
+                <h3 class="text-lg font-bold text-white uppercase tracking-tight">Research Computing Support Intern</h3>
+                <span class="px-2 py-0.5 rounded border border-cyan-500/30 text-xs text-cyan-400 font-bold uppercase tracking-widest">Current</span>
               </div>
-              <p class="text-xs text-gray-500 font-bold">UF Information Technology (UFIT) &nbsp;·&nbsp; Gainesville, FL</p>
+              <span class="text-xs text-gray-600 font-bold tracking-wide whitespace-nowrap">Jan 2026 — Present</span>
             </div>
-            <span class="text-[10px] text-gray-600 font-bold tracking-wide whitespace-nowrap">Jan 2026 — Present</span>
-          </div>
-          <ul class="space-y-1.5 mb-5">
-            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
-              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-              Troubleshoot, debug, and install HPC applications on the HiPerGator supercomputer using Linux and Slurm.
-            </li>
-            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
-              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-              Develop internal web applications using Django, Python, and PostgreSQL.
-            </li>
-            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
-              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-              Provide tier-one support to HiPerGator users across research computing tasks.
-            </li>
-          </ul>
-          <div class="flex flex-wrap gap-2">
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-[#FFE873] border border-yellow-800/40 text-[10px] font-bold uppercase">
-              <img src="https://cdn.simpleicons.org/python/FFE873" class="w-3.5 h-3.5" alt=""> Python
-            </span>
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 text-white border border-white/20 text-[10px] font-bold uppercase">
-              <img src="https://cdn.simpleicons.org/django/white" class="w-3.5 h-3.5" alt=""> Django
-            </span>
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/20 text-[#4169E1] border border-blue-800/40 text-[10px] font-bold uppercase">
-              <img src="https://cdn.simpleicons.org/postgresql/4169E1" class="w-3.5 h-3.5" alt=""> PostgreSQL
-            </span>
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/50 text-[#FCC624] border border-yellow-600/30 text-[10px] font-bold uppercase">
-              <img src="https://cdn.simpleicons.org/linux/FCC624" class="w-3.5 h-3.5" alt=""> Linux
-            </span>
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-gray-800/50 text-gray-400 border border-gray-700 text-[10px] font-bold uppercase">
-              HPC / Slurm
-            </span>
+            <p class="text-sm text-gray-400 font-bold mb-4">UF Information Technology (UFIT) &nbsp;·&nbsp; Gainesville, FL</p>
+            <ul class="space-y-1.5 mb-5">
+              <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
+                <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+                Troubleshoot, debug, and install HPC applications on the HiPerGator supercomputer using Linux and Slurm.
+              </li>
+              <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
+                <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+                Develop internal web applications using Django, Python, and PostgreSQL.
+              </li>
+              <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
+                <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+                Provide tier-one support to HiPerGator users across research computing tasks.
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-[#FFE873] border border-yellow-800/40 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/python/FFE873" class="w-3.5 h-3.5" alt=""> Python
+              </span>
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 text-white border border-white/20 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/django/white" class="w-3.5 h-3.5" alt=""> Django
+              </span>
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/20 text-[#4169E1] border border-blue-800/40 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/postgresql/4169E1" class="w-3.5 h-3.5" alt=""> PostgreSQL
+              </span>
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/50 text-[#FCC624] border border-yellow-600/30 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/linux/FCC624" class="w-3.5 h-3.5" alt=""> Linux
+              </span>
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-gray-800/50 text-gray-400 border border-gray-700 text-[10px] font-bold uppercase">
+                HPC / Slurm
+              </span>
+            </div>
           </div>
         </div>
 
-        <!-- Church Web Dev -->
-        <div id="exp-church" class="border border-gray-800 bg-gray-800/20 rounded-lg p-6 hover:border-gray-600/40 transition-all duration-500">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
-            <div>
-              <h3 class="text-base font-bold text-white uppercase tracking-tight mb-1">Web Developer</h3>
-              <p class="text-xs text-gray-500 font-bold">Avondale United Methodist Church &nbsp;·&nbsp; Jacksonville, FL</p>
+        <!-- AUMC -->
+        <div id="exp-church" class="relative rounded-lg transition-all duration-500">
+          <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-gray-600 bg-gray-900"></div>
+          <div class="flex-1">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+              <h3 class="text-lg font-bold text-white uppercase tracking-tight opacity-80">Web Developer</h3>
+              <span class="text-xs text-gray-600 font-bold tracking-wide whitespace-nowrap">Aug 2019 — Jun 2025</span>
             </div>
-            <span class="text-[10px] text-gray-600 font-bold tracking-wide whitespace-nowrap">Aug 2019 — Jun 2025</span>
-          </div>
-          <ul class="space-y-1.5 mb-5">
-            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
-              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-              Designed, coded, and maintained the church website using HTML, CSS, JavaScript, and PHP, serving 50+ members.
-            </li>
-            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
-              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-              Implemented a pictorial directory, migrating hand-collected forms to 20+ member entries via server-side scripting.
-            </li>
-          </ul>
-          <div class="flex flex-wrap gap-2">
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-orange-900/10 text-orange-400 border border-orange-800/30 text-[10px] font-bold uppercase">
-              <img src="https://cdn.simpleicons.org/html5/E34F26" class="w-3.5 h-3.5" alt=""> HTML/CSS
-            </span>
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-yellow-300 border border-yellow-800/30 text-[10px] font-bold uppercase">
-              <img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="w-3.5 h-3.5" alt=""> JavaScript
-            </span>
-            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/10 text-[#777BB4] border border-blue-800/30 text-[10px] font-bold uppercase">
-              <img src="https://cdn.simpleicons.org/php/777BB4" class="w-3.5 h-3.5" alt=""> PHP
-            </span>
+            <p class="text-sm text-gray-400 font-bold mb-4">Avondale United Methodist Church &nbsp;·&nbsp; Jacksonville, FL</p>
+            <ul class="space-y-1.5 mb-5">
+              <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
+                <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+                Designed, coded, and maintained the church website using HTML, CSS, JavaScript, and PHP, serving 50+ members.
+              </li>
+              <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
+                <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+                Implemented a pictorial directory, migrating hand-collected forms to 20+ member entries via server-side scripting.
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-orange-900/10 text-orange-400 border border-orange-800/30 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/html5/E34F26" class="w-3.5 h-3.5" alt=""> HTML/CSS
+              </span>
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-yellow-300 border border-yellow-800/30 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="w-3.5 h-3.5" alt=""> JavaScript
+              </span>
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/10 text-[#777BB4] border border-blue-800/30 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/php/777BB4" class="w-3.5 h-3.5" alt=""> PHP
+              </span>
+            </div>
           </div>
         </div>
 
@@ -266,7 +269,7 @@
                 <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" class="w-6 h-6">
               </a>
             </div>
-            <p class="text-xs text-gray-400 mb-6 leading-relaxed flex-grow">
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
               A Multi-Agent PPO framework using CTDE for robotic area coverage. Employs a CNN backbone for spatial feature extraction from multi-channel grid observations. Combines reward shaping with decentralized policies to scale from 20 to 50 robots while maintaining continuous connectivity.
             </p>
             <div class="flex flex-wrap gap-2">
@@ -300,7 +303,7 @@
                 <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" class="w-6 h-6">
               </a>
             </div>
-            <p class="text-xs text-gray-400 mb-6 leading-relaxed flex-grow">
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
               Full-stack trip planner where users can add local restaurants, hotels, and more to an itinerary, manage a packing list, and view flight information. Developed with FastAPI and Next.js, plus in-memory caching. Earned the Audience Choice Award at UNF's 2025 SoC Symposium.
             </p>
             <div class="flex flex-wrap gap-2">
@@ -334,7 +337,7 @@
                 <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" class="w-6 h-6">
               </a>
             </div>
-            <p class="text-xs text-gray-400 mb-6 leading-relaxed flex-grow">
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
               Desktop interface for the Raspberry Pi, developed using JavaFX. Key modules include a file manager, a shell interface, real-time CPU, RAM, disk usage monitoring, and a GPIO control panel. Uses multithreading and local storage for system preferences to improve UX.
             </p>
             <div class="flex flex-wrap gap-2">
@@ -378,7 +381,7 @@
                 <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" class="w-6 h-6">
               </a>
             </div>
-            <p class="text-xs text-gray-400 mb-6 leading-relaxed flex-grow">
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
               A full-stack commerce platform for the UF community. Implementing a RESTful API with Go/Gin and a reactive Angular frontend. Utilizing SQLite for lightweight, serverless data persistence, managing user authentication and itemized listings.
             </p>
             <div class="flex flex-wrap gap-2">
@@ -411,7 +414,7 @@
         <img src="https://cdn.simpleicons.org/github/white" class="w-5 h-5 opacity-60 group-hover:opacity-100" alt="GitHub">
         GITHUB
       </a>
-      <a href="mailto:jacorrieri@gmail.com" target="_blank" class="group flex items-center gap-3 text-sm font-bold hover:text-white transition-colors">
+      <a href="/cdn-cgi/l/email-protection#2c464d4f435e5e45495e456c4b414d4540024f4341" target="_blank" class="group flex items-center gap-3 text-sm font-bold hover:text-white transition-colors">
         <img src="https://cdn.simpleicons.org/gmail/white" class="w-5 h-5 opacity-60 group-hover:opacity-100" alt="Email">
         EMAIL
       </a>
@@ -430,7 +433,7 @@
     &copy; 2026 Jacomo Corrieri &mdash; Built with Webpack &amp; Tailwind CSS. Icons by Simple Icons.
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Skills data ────────────────────────────────────────────────────────────
     const skillsData = [
       {
@@ -631,13 +634,13 @@
     skillsData.forEach(cat => {
       const section = document.createElement('div');
       section.innerHTML = `
-        <p class="text-[9px] text-gray-600 uppercase tracking-[0.18em] font-bold mb-3 pb-2 border-b border-gray-800">${cat.category}</p>
+        <p class="text-xs text-gray-600 uppercase tracking-[0.18em] font-bold mb-3 pb-2 border-b border-gray-800">${cat.category}</p>
         <div class="flex flex-wrap gap-2" data-cat></div>
       `;
       const grid = section.querySelector('[data-cat]');
       cat.skills.forEach(skill => {
         const chip = document.createElement('button');
-        chip.className = `skill-chip flex items-center gap-1.5 px-2.5 py-1.5 rounded border text-[10px] font-bold uppercase transition-all ${skill.chip}`;
+        chip.className = `skill-chip flex items-center gap-1.5 px-3 py-1.5 rounded border text-xs font-bold uppercase transition-all ${skill.chip}`;
         chip.dataset.skillId = skill.id;
         chip.dataset.links = JSON.stringify(skill.links);
         let iconHtml = skill.icon
@@ -671,7 +674,7 @@
       chipEl.classList.add('active');
 
       if (links.length === 0) {
-        popoverContent.innerHTML = `<p class="text-[11px] text-gray-500 italic">General skill — no specific linked item.</p>`;
+        popoverContent.innerHTML = `<p class="text-sm text-gray-500 italic">General skill — no specific linked item.</p>`;
       } else {
         const grouped = {};
         links.forEach(l => {
@@ -682,20 +685,37 @@
         ['project','exp','course'].forEach(type => {
           if (!grouped[type]) return;
           const { label, color } = typeLabel(type);
-          html += `<p class="text-[9px] ${color} uppercase tracking-widest font-bold mb-1.5 mt-2 first:mt-0">${label}</p>`;
+          html += `<p class="text-xs ${color} uppercase tracking-widest font-bold mb-1.5 mt-2 first:mt-0">${label}</p>`;
           grouped[type].forEach(l => {
-            html += `<button onclick="scrollToTarget('${l.target}')" class="block w-full text-left text-[11px] text-gray-400 hover:text-cyan-400 py-0.5 transition-colors truncate">↗ ${l.label}</button>`;
+            html += `<button onclick="scrollToTarget('${l.target}')" class="block w-full text-left text-sm text-gray-400 hover:text-cyan-400 py-0.5 transition-colors truncate">↗ ${l.label}</button>`;
           });
         });
         popoverContent.innerHTML = html;
       }
 
       popover.classList.remove('hidden');
+      // Measure after making visible so offsetHeight is correct
       const rect = chipEl.getBoundingClientRect();
       const pw = 224;
-      let left = rect.left + window.scrollX;
-      let top  = rect.bottom + window.scrollY + 6;
-      if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+      const ph = popover.offsetHeight;
+      const margin = 8;
+      const spaceBelow = window.innerHeight - rect.bottom;
+      const spaceAbove = rect.top;
+
+      // Horizontal: align to chip left, clamp to viewport
+      let left = rect.left;
+      if (left + pw > window.innerWidth - margin) left = window.innerWidth - pw - margin;
+      if (left < margin) left = margin;
+
+      // Vertical: prefer below, flip above if not enough room
+      let top;
+      if (spaceBelow >= ph + 6 || spaceBelow >= spaceAbove) {
+        top = rect.bottom + 6;
+      } else {
+        top = rect.top - ph - 6;
+      }
+
+      popover.style.position = 'fixed';
       popover.style.left = left + 'px';
       popover.style.top  = top  + 'px';
     }
@@ -710,8 +730,8 @@
       const el = document.getElementById(targetId);
       if (!el) return;
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      el.classList.add('highlight-pulse');
-      setTimeout(() => el.classList.remove('highlight-pulse'), 1800);
+      el.classList.add('scroll-highlight');
+      setTimeout(() => el.classList.remove('scroll-highlight'), 1600);
     }
 
     document.addEventListener('click', e => {
