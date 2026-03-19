@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jacomo Corrieri - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
     body { font-family: 'JetBrains Mono', monospace; }
@@ -12,96 +13,144 @@
     ::-webkit-scrollbar-track { background: #111827; }
     ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+    .nav-link.active { color: #06b6d4; }
+    .skill-chip { cursor: pointer; user-select: none; }
+    .skill-chip.active { border-color: rgba(6,182,212,0.6) !important; box-shadow: 0 0 8px rgba(6,182,212,0.2); }
+    .highlight-pulse {
+      outline: 2px solid rgba(6,182,212,0.7);
+      outline-offset: 3px;
+      transition: outline 0.4s ease;
+    }
+    #skill-popover { transition: opacity 0.1s ease; }
   </style>
 </head>
 
 <body class="bg-gray-900 text-gray-300 selection:bg-cyan-500/30">
-  <div class="fixed inset-0 z-[-1] opacity-[0.03] pointer-events-none" 
+
+  <!-- Dot grid background -->
+  <div class="fixed inset-0 z-[-1] opacity-[0.03] pointer-events-none"
     style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 24px 24px;">
   </div>
 
+  <!-- Sticky Nav -->
+  <nav class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800/50">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+      <span class="text-md font-bold tracking-[0.3em] text-gray-600 uppercase">JC</span>
+      <div class="flex gap-5 md:gap-8">
+        <a href="#skills"     class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Skills</a>
+        <a href="#education"  class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Education</a>
+        <a href="#experience" class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Experience</a>
+        <a href="#projects"   class="nav-link text-[15px] font-bold tracking-widest text-gray-500 hover:text-cyan-400 transition-colors uppercase">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Skill link popover (single floating instance) -->
+  <div id="skill-popover" class="hidden fixed z-50 bg-gray-950 border border-gray-700 rounded-lg p-3 shadow-2xl w-56">
+    <div id="popover-content"></div>
+  </div>
+
   <main class="max-w-5xl mx-auto py-20 px-6">
-    
+
+    <!-- Hero -->
     <header class="mb-24 border-l-4 border-cyan-500 pl-8">
       <h1 class="text-4xl font-bold tracking-tight text-white mb-2 uppercase">Jacomo Corrieri</h1>
       <div class="text-lg text-gray-400 max-w-4xl leading-relaxed">
-        <p class="mb-2">Experienced in software engineering and machine learning. Plus, I play the drums!</p>
-        <p class="flex flex-wrap items-center gap-x-2">
-          Currently working with 
-          <span class="inline-flex items-center gap-1 text-[#00ADD8] font-bold"><img src="https://cdn.simpleicons.org/go/00ADD8" class="w-4 h-4" alt="">Go</span>, 
-          <span class="inline-flex items-center gap-1 text-[#DD0031] font-bold"><img src="https://cdn.simpleicons.org/angular/DD0031" class="w-4 h-4" alt="">Angular</span>, 
-          and 
+        <p class="mb-2">MS CS @ UF — ML research &amp; full-stack engineering. Plus, I play the drums!</p>
+        <p class="flex flex-wrap items-center gap-x-2 text-sm">
+          Currently building with
+          <span class="inline-flex items-center gap-1 text-[#00ADD8] font-bold"><img src="https://cdn.simpleicons.org/go/00ADD8" class="w-4 h-4" alt="">Go</span>,
+          <span class="inline-flex items-center gap-1 text-[#DD0031] font-bold"><img src="https://cdn.simpleicons.org/angular/DD0031" class="w-4 h-4" alt="">Angular</span>,
+          and
           <span class="inline-flex items-center gap-1 text-[#FFE873] font-bold"><img src="https://cdn.simpleicons.org/python/FFE873" class="w-4 h-4" alt="">Python</span>.
         </p>
       </div>
       <div class="mt-6">
-        <a href="./media/Corrieri_Jacomo_Resume.pdf" target="_blank" 
+        <a href="./media/Corrieri_Jacomo_Resume.pdf" target="_blank"
            class="px-4 py-2 bg-cyan-600/10 border border-cyan-500/50 text-cyan-400 text-xs font-bold tracking-widest uppercase rounded backdrop-blur-sm hover:bg-cyan-500 hover:text-white transition-all">
           [ Resume ]
         </a>
       </div>
     </header>
 
+    <!-- ═══════════════════════════════════════ SKILLS -->
+    <section id="skills" class="mb-24 scroll-mt-16">
+      <div class="flex items-center gap-4 mb-3">
+        <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold">Skills</h2>
+        <span class="text-[10px] text-gray-600 font-bold tracking-wider uppercase border border-gray-700 rounded px-2 py-0.5">click a chip to see links</span>
+      </div>
+      <p class="text-[11px] text-gray-600 mb-10">Linked to projects, coursework, and experience where applicable.</p>
 
-    <section id="education" class="mb-24 scroll-mt-20">
+      <div id="skills-container" class="space-y-8"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ EDUCATION -->
+    <section id="education" class="mb-24 scroll-mt-16">
       <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold mb-12">Education</h2>
-      
+
       <div class="relative ml-4 md:ml-12 border-l-2 border-gray-800 pl-8 pb-4">
-        
-        <div class="relative mb-16">
+
+        <!-- UF -->
+        <div id="edu-uf" class="relative mb-16 rounded-lg transition-all duration-500">
           <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-cyan-500 bg-gray-900 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
-          
           <div class="flex flex-col md:flex-row gap-6">
             <div class="shrink-0">
               <img src="media/Vertical_Logo-RGB_Raster-ORANGE.png" alt="UF Logo" class="h-16 w-auto object-contain opacity-90">
             </div>
-            <div>
+            <div class="flex-1">
               <div class="flex flex-wrap items-center gap-x-4 mb-1">
                 <h3 class="text-lg font-bold text-white uppercase tracking-tight">University of Florida</h3>
                 <span class="px-2 py-0.5 rounded border border-cyan-500/30 text-[9px] text-cyan-400 font-bold uppercase tracking-widest">Master of Science</span>
               </div>
-              <p class="text-gray-400 text-xs font-bold mb-4">Computer Science | 2025 — Present</p>
-              
-              <div class="relative mt-4 pl-6 border-l border-gray-700 py-1">
-                <div class="absolute -left-[1px] top-0 w-3 border-t border-gray-700"></div>
-                <h4 class="text-xs text-white font-bold uppercase tracking-wider mb-1 flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
-                  Research Computing Support Intern @ UFIT
-                </h4>
-                <p class="text-[11px] text-gray-500 leading-relaxed max-w-xl">
-                  Troubleshooting, debugging, and installing High Performance Computing (HPC) applications on HiperGator. Developing internal applications using Django, Python, and PostgreSQL.
-                </p>
+              <p class="text-gray-400 text-xs font-bold mb-4">Computer Science &nbsp;|&nbsp; 2025 — Present &nbsp;|&nbsp; GPA: 3.66</p>
+              <div>
+                <p class="text-[9px] text-gray-600 uppercase tracking-widest font-bold mb-2">Relevant Coursework</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Computer Vision</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">ML Engineering</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Analysis of Algorithms</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Math for Intelligent Systems</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="relative">
+        <!-- UNF -->
+        <div id="edu-unf" class="relative rounded-lg transition-all duration-500">
           <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full border-2 border-gray-600 bg-gray-900"></div>
-          
           <div class="flex flex-col md:flex-row gap-6">
             <div class="shrink-0">
               <img src="https://www.unf.edu/brand/images/UNF_vertical_white.png" alt="UNF Logo" class="h-16 w-auto object-contain opacity-60">
             </div>
-            <div>
+            <div class="flex-1">
               <div class="flex flex-wrap items-center gap-x-4 mb-1">
                 <h3 class="text-lg font-bold text-white uppercase tracking-tight opacity-80">University of North Florida</h3>
                 <span class="px-2 py-0.5 rounded border border-gray-700 text-[9px] text-gray-500 font-bold uppercase tracking-widest">Bachelor of Science</span>
               </div>
-              <p class="text-gray-400 text-xs font-bold mb-3">Computer Science | Minors in Math & IB | 2021 — 2025</p>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 mt-4">
+              <p class="text-gray-400 text-xs font-bold mb-3">Computer Science &nbsp;|&nbsp; Minors in Math &amp; IB &nbsp;|&nbsp; 2021 — 2025 &nbsp;|&nbsp; GPA: 3.99</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 mb-4">
                 <div class="flex items-center gap-2 text-[11px] text-gray-500">
-                  <span class="text-cyan-500 text-xs">▹</span> Summa Cum Laude (GPA: 3.99)
+                  <span class="text-cyan-500 text-xs">▹</span> Summa Cum Laude &nbsp;|&nbsp; Hicks Honors College
                 </div>
                 <div class="flex items-center gap-2 text-[11px] text-gray-500">
-                  <span class="text-cyan-500 text-xs">▹</span> Hicks Honors College
+                  <span class="text-cyan-500 text-xs">▹</span>
+                  <a class="hover:underline" href="https://www.unf.edu/newsroom/2024/11/NestforAwhile-Competition.html" target="_blank">2nd Place @ NestForAWhile Programming Competition</a>
                 </div>
                 <div class="flex items-center gap-2 text-[11px] text-gray-500">
-                  <span class="text-cyan-500 text-xs">▹</span><a class="hover:underline" href="https://www.unf.edu/newsroom/2024/11/NestforAwhile-Competition.html" target="_blank">2nd Place @ NestForAWhile Programming Competition</a>
+                  <span class="text-cyan-500 text-xs">▹</span>
+                  <a class="hover:underline" href="https://www.linkedin.com/posts/ian-dahlin_im-thrilled-to-announce-that-our-team-just-activity-7323414255410585600-k6hc" target="_blank">Award Winner @ 2025 SoC Symposium</a>
                 </div>
-                <div class="flex items-center gap-2 text-[11px] text-gray-500">
-                  <span class="text-cyan-500 text-xs">▹</span><a class="hover:underline" href="https://www.linkedin.com/posts/ian-dahlin_im-thrilled-to-announce-that-our-team-just-activity-7323414255410585600-k6hc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEGJgXwBRCBjVFk5wmoKFokg4dIofV_qgno" target="_blank">Award Winner @ 2025 SoC Symposium</a>
+              </div>
+              <div>
+                <p class="text-[9px] text-gray-600 uppercase tracking-widest font-bold mb-2">Relevant Coursework</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">ML with Graphs</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Intro to AI</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Data Structures</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Operating Systems</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Databases</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 border border-gray-700 text-gray-400">Software Engineering</span>
                 </div>
               </div>
             </div>
@@ -111,15 +160,103 @@
       </div>
     </section>
 
-    <section id="projects" class="space-y-12">
+    <!-- ═══════════════════════════════════════ EXPERIENCE -->
+    <section id="experience" class="mb-24 scroll-mt-16">
+      <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold mb-12">Experience</h2>
+
+      <div class="space-y-8">
+
+        <!-- UFIT Internship -->
+        <div id="exp-ufit" class="border border-gray-800 bg-gray-800/20 rounded-lg p-6 hover:border-cyan-500/30 transition-all duration-500">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+            <div>
+              <div class="flex items-center gap-3 mb-1">
+                <h3 class="text-base font-bold text-white uppercase tracking-tight">Research Computing Support Intern</h3>
+                <span class="px-2 py-0.5 rounded bg-cyan-700/20 border border-cyan-500/30 text-[9px] text-cyan-400 font-black uppercase tracking-widest">Current</span>
+              </div>
+              <p class="text-xs text-gray-500 font-bold">UF Information Technology (UFIT) &nbsp;·&nbsp; Gainesville, FL</p>
+            </div>
+            <span class="text-[10px] text-gray-600 font-bold tracking-wide whitespace-nowrap">Jan 2026 — Present</span>
+          </div>
+          <ul class="space-y-1.5 mb-5">
+            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
+              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+              Troubleshoot, debug, and install HPC applications on the HiPerGator supercomputer using Linux and Slurm.
+            </li>
+            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
+              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+              Develop internal web applications using Django, Python, and PostgreSQL.
+            </li>
+            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
+              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+              Provide tier-one support to HiPerGator users across research computing tasks.
+            </li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-[#FFE873] border border-yellow-800/40 text-[10px] font-bold uppercase">
+              <img src="https://cdn.simpleicons.org/python/FFE873" class="w-3.5 h-3.5" alt=""> Python
+            </span>
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 text-white border border-white/20 text-[10px] font-bold uppercase">
+              <img src="https://cdn.simpleicons.org/django/white" class="w-3.5 h-3.5" alt=""> Django
+            </span>
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/20 text-[#4169E1] border border-blue-800/40 text-[10px] font-bold uppercase">
+              <img src="https://cdn.simpleicons.org/postgresql/4169E1" class="w-3.5 h-3.5" alt=""> PostgreSQL
+            </span>
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/50 text-[#FCC624] border border-yellow-600/30 text-[10px] font-bold uppercase">
+              <img src="https://cdn.simpleicons.org/linux/FCC624" class="w-3.5 h-3.5" alt=""> Linux
+            </span>
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-gray-800/50 text-gray-400 border border-gray-700 text-[10px] font-bold uppercase">
+              HPC / Slurm
+            </span>
+          </div>
+        </div>
+
+        <!-- Church Web Dev -->
+        <div id="exp-church" class="border border-gray-800 bg-gray-800/20 rounded-lg p-6 hover:border-gray-600/40 transition-all duration-500">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-base font-bold text-white uppercase tracking-tight mb-1">Web Developer</h3>
+              <p class="text-xs text-gray-500 font-bold">Avondale United Methodist Church &nbsp;·&nbsp; Jacksonville, FL</p>
+            </div>
+            <span class="text-[10px] text-gray-600 font-bold tracking-wide whitespace-nowrap">Aug 2019 — Jun 2025</span>
+          </div>
+          <ul class="space-y-1.5 mb-5">
+            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
+              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+              Designed, coded, and maintained the church website using HTML, CSS, JavaScript, and PHP, serving 50+ members.
+            </li>
+            <li class="flex gap-2 text-xs text-gray-400 leading-relaxed">
+              <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+              Implemented a pictorial directory, migrating hand-collected forms to 20+ member entries via server-side scripting.
+            </li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-orange-900/10 text-orange-400 border border-orange-800/30 text-[10px] font-bold uppercase">
+              <img src="https://cdn.simpleicons.org/html5/E34F26" class="w-3.5 h-3.5" alt=""> HTML/CSS
+            </span>
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-yellow-300 border border-yellow-800/30 text-[10px] font-bold uppercase">
+              <img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="w-3.5 h-3.5" alt=""> JavaScript
+            </span>
+            <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/10 text-[#777BB4] border border-blue-800/30 text-[10px] font-bold uppercase">
+              <img src="https://cdn.simpleicons.org/php/777BB4" class="w-3.5 h-3.5" alt=""> PHP
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ PROJECTS -->
+    <section id="projects" class="space-y-12 scroll-mt-16">
       <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold mb-8">Projects</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-        <div class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all flex flex-col">
+
+        <!-- Multi-Robot -->
+        <div id="project-mrc" class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" poster="./media/mrc_poster.png">
-              <source src="https://www.dropbox.com/scl/fi/hruz6up8vpgd2x41tat6o/ICRA-2026-Jacomo-Video.mp4?rlkey=mj0vyccgpv6b7urbyt7mhtv5h&st=5ylaxy3g&raw=1" type="video/mp4" />
+              <source src="https://www.dropbox.com/scl/fi/ce7aima1ojrkq7wmcnyrn/size25_seed1.mp4?rlkey=hjj2y4drpd6tq6cayzo2x9mxp&st=2994br7h&raw=1" type="video/mp4" />
             </video>
           </div>
           <div class="p-5 flex-grow flex flex-col">
@@ -145,11 +282,12 @@
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 text-white border border-white/20 text-[10px] font-bold uppercase">
                 <img src="https://cdn.simpleicons.org/openaigym/white" class="w-3.5 h-3.5" alt=""> Gymnasium
               </span>
-            </div> 
+            </div>
           </div>
         </div>
 
-        <div class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all flex flex-col">
+        <!-- AeroAtlas -->
+        <div id="project-aeroatlas" class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" poster="./media/aeroatlas.jpg">
               <source src="https://www.dropbox.com/scl/fi/smkioq5hdl927ter4qn8b/Aeroatlas_Demo.mp4?rlkey=tze88ae9d0eedlyuruwpsdg1v&st=yjq36k6j&raw=1" type="video/mp4" />
@@ -182,7 +320,8 @@
           </div>
         </div>
 
-        <div class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all flex flex-col">
+        <!-- Raspberry Pi -->
+        <div id="project-rpi" class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" poster="./media/gpiosc.jpg">
               <source src="https://www.dropbox.com/scl/fi/em17fuyba6vgzr0x7o9jp/RPI_Demo.mp4?rlkey=popepwmui1jpf4lnm0qpsb4xl&st=95pdr1ch&raw=1" type="video/mp4" />
@@ -196,7 +335,7 @@
               </a>
             </div>
             <p class="text-xs text-gray-400 mb-6 leading-relaxed flex-grow">
-                                Desktop interface for the Rasperry Pi, developed using JavaFX. Key modules include a file manager, a shell interface, real-time CPU, RAM, disk usage monitoring, and a GPIO control panel. Uses multithreading and local storage for system preferences to improve UX.
+              Desktop interface for the Raspberry Pi, developed using JavaFX. Key modules include a file manager, a shell interface, real-time CPU, RAM, disk usage monitoring, and a GPIO control panel. Uses multithreading and local storage for system preferences to improve UX.
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-red-900/10 text-[#F8981D] border border-red-800/40 text-[10px] font-bold uppercase">
@@ -215,13 +354,13 @@
           </div>
         </div>
 
-        <div class="group border border-dashed border-gray-700 bg-cyan-500/5 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all flex flex-col relative">
+        <!-- UF Marketplace -->
+        <div id="project-marketplace" class="group border border-dashed border-gray-700 bg-cyan-500/5 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col relative">
           <div class="absolute top-3 right-3 z-10">
-            <span class="px-2 py-1 rounded bg-cyan-700 text-gray-200 text-[9px] font-black uppercase tracking-tighter pulse shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+            <span class="px-2 py-1 rounded bg-cyan-700 text-gray-200 text-[9px] font-black uppercase tracking-tighter shadow-[0_0_10px_rgba(6,182,212,0.4)]">
               In Development
             </span>
           </div>
-
           <div class="aspect-video w-full bg-gray-950 flex items-center justify-center relative overflow-hidden">
             <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#06b6d4 1px, transparent 1px), linear-gradient(90deg, #06b6d4 1px, transparent 1px); background-size: 20px 20px;"></div>
             <div class="text-center z-10">
@@ -232,7 +371,6 @@
               </div>
             </div>
           </div>
-
           <div class="p-5 flex-grow flex flex-col">
             <div class="flex justify-between items-start mb-3">
               <h3 class="text-lg font-bold text-white tracking-tight leading-tight">UF Student Marketplace</h3>
@@ -253,22 +391,21 @@
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-cyan-900/10 text-[#06B6D4] border border-cyan-800/40 text-[10px] font-bold uppercase">
                 <img src="https://cdn.simpleicons.org/sqlite/06B6D4" class="w-3.5 h-3.5" alt=""> SQLite
               </span>
-              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/50 text-[#FCC624] border border-yellow-600/30 text-[10px] font-bold uppercase">
-                <img src="https://cdn.simpleicons.org/gin/FCC624" class="w-3.5 h-3.5" alt=""> Gin
-              </span>
-            </div> 
+            </div>
           </div>
         </div>
 
       </div>
 
       <div class="text-center py-10">
-        <a href="https://github.com/Jcorrieri?tab=repositories" target="_blank" class="text-md font-bold text-gray-500 hover:text-cyan-400 transition-colors tracking-widest">
+        <a href="https://github.com/Jcorrieri?tab=repositories" target="_blank"
+           class="text-md font-bold text-gray-500 hover:text-cyan-400 transition-colors tracking-widest">
           [ VIEW ALL PROJECTS ]
         </a>
       </div>
     </section>
-    
+
+    <!-- Contact -->
     <section class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 pt-12 border-t border-gray-800">
       <a href="https://github.com/Jcorrieri" target="_blank" class="group flex items-center gap-3 text-sm font-bold hover:text-white transition-colors">
         <img src="https://cdn.simpleicons.org/github/white" class="w-5 h-5 opacity-60 group-hover:opacity-100" alt="GitHub">
@@ -290,8 +427,320 @@
   </main>
 
   <footer class="text-center py-10 mt-10 text-xs text-gray-600 tracking-widest border-t border-gray-800/50">
-    &copy 2026 Jacomo Corrieri — Built with Webpack & Tailwind CSS. Icons by Simple Icons.
+    &copy; 2026 Jacomo Corrieri &mdash; Built with Webpack &amp; Tailwind CSS. Icons by Simple Icons.
   </footer>
+
+  <script>
+    // ── Skills data ────────────────────────────────────────────────────────────
+    const skillsData = [
+      {
+        category: "Machine Learning & AI",
+        skills: [
+          {
+            id: "python", label: "Python",
+            icon: "python/FFE873", iconColor: "#FFE873",
+            chip: "bg-yellow-900/10 text-[#FFE873] border-yellow-800/40",
+            links: [
+              { type: "project", label: "Multi-Robot Coverage",  target: "project-mrc" },
+              { type: "project", label: "AeroAtlas",             target: "project-aeroatlas" },
+              { type: "exp",     label: "UF Internship @ UFIT",  target: "exp-ufit" },
+            ]
+          },
+          {
+            id: "pytorch", label: "PyTorch",
+            icon: "pytorch/EE4C2C", iconColor: "#EE4C2C",
+            chip: "bg-orange-900/10 text-orange-400 border-orange-800/40",
+            links: [
+              { type: "project", label: "Multi-Robot Coverage", target: "project-mrc" },
+              { type: "course",  label: "Computer Vision (UF)", target: "edu-uf" },
+              { type: "course",  label: "ML Engineering (UF)",  target: "edu-uf" },
+              { type: "course",  label: "ML w/ Graphs (UNF)",   target: "edu-unf" },
+              { type: "course",  label: "Intro to AI (UNF)",    target: "edu-unf" },
+            ]
+          },
+          {
+            id: "sklearn", label: "scikit-learn",
+            icon: "scikitlearn/F7931E", iconColor: "#F7931E",
+            chip: "bg-orange-900/10 text-[#F7931E] border-orange-800/30",
+            links: [
+              { type: "course", label: "Computer Vision (UF)", target: "edu-uf" },
+              { type: "course", label: "ML Engineering (UF)",  target: "edu-uf" },
+              { type: "course", label: "ML w/ Graphs (UNF)",   target: "edu-unf" },
+              { type: "course", label: "Intro to AI (UNF)",    target: "edu-unf" },
+            ]
+          },
+          {
+            id: "classical-ml", label: "Classical ML",
+            icon: null, iconColor: null,
+            chip: "bg-gray-800/50 text-gray-400 border-gray-700",
+            links: [
+              { type: "course", label: "Computer Vision (UF)", target: "edu-uf" },
+              { type: "course", label: "ML Engineering (UF)",  target: "edu-uf" },
+              { type: "course", label: "ML w/ Graphs (UNF)",   target: "edu-unf" },
+              { type: "course", label: "Intro to AI (UNF)",    target: "edu-unf" },
+            ]
+          },
+          {
+            id: "ray", label: "Ray RLlib",
+            icon: "ray/028CF0", iconColor: "#028CF0",
+            chip: "bg-blue-900/10 text-[#028CF0] border-blue-800/40",
+            links: [
+              { type: "project", label: "Multi-Robot Coverage", target: "project-mrc" },
+            ]
+          },
+          {
+            id: "gymnasium", label: "Gymnasium",
+            icon: "openaigym/white", iconColor: "white",
+            chip: "bg-white/5 text-white border-white/20",
+            links: [
+              { type: "project", label: "Multi-Robot Coverage", target: "project-mrc" },
+            ]
+          },
+        ]
+      },
+      {
+        category: "Backend & Databases",
+        skills: [
+          {
+            id: "fastapi", label: "FastAPI",
+            icon: "fastapi/05998B", iconColor: "#05998B",
+            chip: "bg-emerald-900/10 text-[#05998B] border-emerald-800/40",
+            links: [
+              { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+            ]
+          },
+          {
+            id: "django", label: "Django",
+            icon: "django/white", iconColor: "white",
+            chip: "bg-white/5 text-white border-white/20",
+            links: [
+              { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
+            ]
+          },
+          {
+            id: "postgresql", label: "PostgreSQL",
+            icon: "postgresql/4169E1", iconColor: "#4169E1",
+            chip: "bg-blue-900/20 text-[#4169E1] border-blue-800/40",
+            links: [
+              { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
+            ]
+          },
+          {
+            id: "go", label: "Go / Gin",
+            icon: "go/00ADD8", iconColor: "#00ADD8",
+            chip: "bg-blue-900/10 text-[#00ADD8] border-blue-800/40",
+            links: [
+              { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+            ]
+          },
+          {
+            id: "sqlite", label: "SQLite",
+            icon: "sqlite/06B6D4", iconColor: "#06B6D4",
+            chip: "bg-cyan-900/10 text-[#06B6D4] border-cyan-800/40",
+            links: [
+              { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+            ]
+          },
+        ]
+      },
+      {
+        category: "Frontend",
+        skills: [
+          {
+            id: "react", label: "React",
+            icon: "react/61DAFB", iconColor: "#61DAFB",
+            chip: "bg-blue-900/10 text-[#61DAFB] border-blue-800/40",
+            links: [
+              { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+            ]
+          },
+          {
+            id: "typescript", label: "TypeScript",
+            icon: "typescript/3178C6", iconColor: "#3178C6",
+            chip: "bg-blue-900/20 text-[#3178C6] border-[#3178C6]/30",
+            links: [
+              { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+            ]
+          },
+          {
+            id: "nextjs", label: "Next.js",
+            icon: "nextdotjs/white", iconColor: "white",
+            chip: "bg-white/5 text-white border-white/20",
+            links: [
+              { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+            ]
+          },
+          {
+            id: "tailwind", label: "Tailwind CSS",
+            icon: "tailwindcss/06B6D4", iconColor: "#06B6D4",
+            chip: "bg-cyan-900/10 text-[#06B6D4] border-cyan-800/40",
+            links: [
+              { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+            ]
+          },
+          {
+            id: "angular", label: "Angular",
+            icon: "angular/DD0031", iconColor: "#DD0031",
+            chip: "bg-red-900/10 text-[#DD0031] border-red-800/40",
+            links: [
+              { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+            ]
+          },
+          {
+            id: "java", label: "Java / JavaFX",
+            icon: "openjdk/F8981D", iconColor: "#F8981D",
+            chip: "bg-red-900/10 text-[#F8981D] border-red-800/40",
+            links: [
+              { type: "project", label: "Raspberry Pi Interface", target: "project-rpi" },
+            ]
+          },
+        ]
+      },
+      {
+        category: "Tools & Infrastructure",
+        skills: [
+          {
+            id: "linux", label: "Linux",
+            icon: "linux/FCC624", iconColor: "#FCC624",
+            chip: "bg-slate-800/50 text-[#FCC624] border-yellow-600/30",
+            links: [
+              { type: "exp",     label: "UF Internship @ UFIT",  target: "exp-ufit" },
+              { type: "project", label: "Raspberry Pi Interface", target: "project-rpi" },
+            ]
+          },
+          {
+            id: "hpc", label: "HPC / Slurm",
+            icon: null, iconColor: null,
+            chip: "bg-gray-800/50 text-gray-400 border-gray-700",
+            links: [
+              { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
+            ]
+          },
+          {
+            id: "git", label: "Git",
+            icon: "git/F05032", iconColor: "#F05032",
+            chip: "bg-red-900/10 text-[#F05032] border-red-800/30",
+            links: []
+          },
+        ]
+      },
+    ];
+
+    // ── Render skills ──────────────────────────────────────────────────────────
+    const container = document.getElementById('skills-container');
+    skillsData.forEach(cat => {
+      const section = document.createElement('div');
+      section.innerHTML = `
+        <p class="text-[9px] text-gray-600 uppercase tracking-[0.18em] font-bold mb-3 pb-2 border-b border-gray-800">${cat.category}</p>
+        <div class="flex flex-wrap gap-2" data-cat></div>
+      `;
+      const grid = section.querySelector('[data-cat]');
+      cat.skills.forEach(skill => {
+        const chip = document.createElement('button');
+        chip.className = `skill-chip flex items-center gap-1.5 px-2.5 py-1.5 rounded border text-[10px] font-bold uppercase transition-all ${skill.chip}`;
+        chip.dataset.skillId = skill.id;
+        chip.dataset.links = JSON.stringify(skill.links);
+        let iconHtml = skill.icon
+          ? `<img src="https://cdn.simpleicons.org/${skill.icon}" class="w-3.5 h-3.5" alt="">`
+          : `<span class="w-3.5 h-3.5 flex items-center justify-center text-[10px] opacity-50">✦</span>`;
+        chip.innerHTML = `${iconHtml}${skill.label}`;
+        if (skill.links.length > 0) {
+          chip.title = `${skill.links.length} link${skill.links.length > 1 ? 's' : ''}`;
+        }
+        grid.appendChild(chip);
+      });
+      container.appendChild(section);
+    });
+
+    // ── Popover logic ──────────────────────────────────────────────────────────
+    let activeChip = null;
+    const popover = document.getElementById('skill-popover');
+    const popoverContent = document.getElementById('popover-content');
+
+    function typeLabel(type) {
+      if (type === 'project')  return { label: 'Projects',   color: 'text-cyan-500' };
+      if (type === 'exp')      return { label: 'Experience',  color: 'text-emerald-500' };
+      if (type === 'course')   return { label: 'Coursework',  color: 'text-purple-400' };
+      return { label: 'Other', color: 'text-gray-400' };
+    }
+
+    function showPopover(chipEl, links) {
+      if (activeChip === chipEl) { hidePopover(); return; }
+      if (activeChip) activeChip.classList.remove('active');
+      activeChip = chipEl;
+      chipEl.classList.add('active');
+
+      if (links.length === 0) {
+        popoverContent.innerHTML = `<p class="text-[11px] text-gray-500 italic">General skill — no specific linked item.</p>`;
+      } else {
+        const grouped = {};
+        links.forEach(l => {
+          if (!grouped[l.type]) grouped[l.type] = [];
+          grouped[l.type].push(l);
+        });
+        let html = '';
+        ['project','exp','course'].forEach(type => {
+          if (!grouped[type]) return;
+          const { label, color } = typeLabel(type);
+          html += `<p class="text-[9px] ${color} uppercase tracking-widest font-bold mb-1.5 mt-2 first:mt-0">${label}</p>`;
+          grouped[type].forEach(l => {
+            html += `<button onclick="scrollToTarget('${l.target}')" class="block w-full text-left text-[11px] text-gray-400 hover:text-cyan-400 py-0.5 transition-colors truncate">↗ ${l.label}</button>`;
+          });
+        });
+        popoverContent.innerHTML = html;
+      }
+
+      popover.classList.remove('hidden');
+      const rect = chipEl.getBoundingClientRect();
+      const pw = 224;
+      let left = rect.left + window.scrollX;
+      let top  = rect.bottom + window.scrollY + 6;
+      if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+      popover.style.left = left + 'px';
+      popover.style.top  = top  + 'px';
+    }
+
+    function hidePopover() {
+      popover.classList.add('hidden');
+      if (activeChip) { activeChip.classList.remove('active'); activeChip = null; }
+    }
+
+    function scrollToTarget(targetId) {
+      hidePopover();
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('highlight-pulse');
+      setTimeout(() => el.classList.remove('highlight-pulse'), 1800);
+    }
+
+    document.addEventListener('click', e => {
+      const chip = e.target.closest('.skill-chip');
+      if (chip) {
+        showPopover(chip, JSON.parse(chip.dataset.links));
+        return;
+      }
+      if (!e.target.closest('#skill-popover')) hidePopover();
+    });
+
+    window.addEventListener('scroll', hidePopover, { passive: true });
+
+    // ── Active nav link via IntersectionObserver ───────────────────────────────
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
 
 </body>
 </html>
