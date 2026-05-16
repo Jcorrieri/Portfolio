@@ -98,6 +98,7 @@ const skillsData = [
         chip: "bg-blue-900/20 text-[#4169E1] border-blue-800/40",
         links: [
           { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
+          { type: "course", label: "Databases", target: "edu-unf"}
         ]
       },
       {
