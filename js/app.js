@@ -2,21 +2,106 @@ import '../css/style.css';
 
 // ── Skills data ────────────────────────────────────────────────────────────
 const skillsData = [
-  {
-    category: "Machine Learning & AI",
+{
+    category: "Programming Languages (including HTML and CSS)",
     skills: [
       {
         id: "python", label: "Python",
         icon: "python/FFE873", iconColor: "#FFE873",
         chip: "bg-yellow-900/10 text-[#FFE873] border-yellow-800/40",
         links: [
+          { type: "project", label: "MoTorch",             target: "project-motorch" },
           { type: "project", label: "Multi-Robot Coverage",  target: "project-mrc" },
           { type: "project", label: "AeroAtlas",             target: "project-aeroatlas" },
+          { type: "exp",     label: "App Dev Intern @ FL Blue",  target: "exp-flblue" },
           { type: "exp",     label: "UF Internship @ UFIT",  target: "exp-ufit" },
           { type: "course",  label: "ML Engineering",        target: "edu-unf" },
           { type: "course",  label: "Computer Vision (UF)", target: "edu-uf" },
           { type: "course",  label: "ML w/ Graphs (UNF)",   target: "edu-unf" },
           { type: "course",  label: "Intro to AI (UNF)",    target: "edu-unf" },
+        ]
+      },
+      {
+        id: "go", label: "Go",
+        icon: "go/00ADD8", iconColor: "#00ADD8",
+        chip: "bg-cyan-900/10 text-[#06B6D4] border-cyan-800/40",
+        links: [
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+          { type: "course",  label: "Software Engineering",    target: "edu-uf" },
+        ]
+      },
+      {
+        id: "java", label: "Java",
+        icon: "openjdk/F8981D", iconColor: "#F8981D",
+        chip: "bg-red-900/10 text-[#F8981D] border-red-800/40",
+        links: [
+          { type: "project", label: "Raspberry Pi Interface", target: "project-rpi" },
+          { type: "course", label: "Analysis of Algorithms", target: "edu-uf" },
+          { type: "course", label: "Databases", target: "edu-unf" },
+        ]
+      },
+      {
+        id: "sql", label: "SQL",
+        icon: "postgresql/4169E1", iconColor: "#4169E1",
+        chip: "bg-blue-900/20 text-[#4169E1] border-blue-800/40",
+        links: [
+          { type: "exp",     label: "App Dev Intern @ FL Blue",  target: "exp-flblue" },
+          { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+          { type: "course", label: "Databases", target: "edu-unf"},
+        ]
+      }, 
+      {
+        id: "html", label: "HTML",
+        icon: "html5/E34F26" , iconColor: "#E34F26",
+        chip: "bg-orange-900/10 text-orange-400 border-orange-800/30",
+        links: [
+          { type: "exp", label: "Web Developer @ AUMC", target: "exp-church" },
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+        ]
+      },
+      {
+        id: "css", label: "CSS",
+        icon: "css/663399" , iconColor: "#663399",
+        chip: "bg-purple-900/10 text-[#663399] border-purple-800/40",
+        links: [
+          { type: "exp", label: "Web Developer @ AUMC", target: "exp-church" },
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+          { type: "project", label: "Raspberry Pi Interface", target: "project-rpi" },
+        ]
+      },
+      {
+        id: "js", label: "JavaScript",
+        icon: "javascript/F7DF1E" , iconColor: "#663399",
+        chip: "bg-yellow-900/10 text-[#F7DF1E] border-yellow-900/40",
+        links: [
+          { type: "exp", label: "Web Developer @ AUMC", target: "exp-church" },
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+        ]
+      }
+    ]
+  },
+  {
+    category: "Libraries and Frameworks",
+    skills: [
+      {
+        id: "fastapi", label: "FastAPI",
+        icon: "fastapi/05998B", iconColor: "#05998B",
+        chip: "bg-emerald-900/10 text-[#05998B] border-emerald-800/40",
+        links: [
+          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
+          { type: "exp",     label: "App Dev Intern @ FL Blue",  target: "exp-flblue" },
+        ]
+      },
+      {
+        id: "django", label: "Django",
+        icon: "django/white", iconColor: "white",
+        chip: "bg-white/5 text-white border-white/20",
+        links: [
+          { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
         ]
       },
       {
@@ -43,118 +128,12 @@ const skillsData = [
         ]
       },
       {
-        id: "classical-ml", label: "Classical ML",
-        icon: null, iconColor: null,
-        chip: "bg-gray-800/50 text-gray-400 border-gray-700",
-        links: [
-          { type: "course", label: "Computer Vision (UF)", target: "edu-uf" },
-          { type: "course", label: "ML Engineering (UF)",  target: "edu-uf" },
-          { type: "course", label: "ML w/ Graphs (UNF)",   target: "edu-unf" },
-          { type: "course", label: "Intro to AI (UNF)",    target: "edu-unf" },
-        ]
-      },
-      {
-        id: "ray", label: "Ray RLlib",
-        icon: "ray/028CF0", iconColor: "#028CF0",
-        chip: "bg-blue-900/10 text-[#028CF0] border-blue-800/40",
-        links: [
-          { type: "project", label: "Multi-Robot Coverage", target: "project-mrc" },
-          { type: "course",  label: "Intro to AI (UNF)",    target: "edu-unf" },
-        ]
-      },
-      {
         id: "gymnasium", label: "Gymnasium",
         icon: "openaigym/white", iconColor: "white",
         chip: "bg-white/5 text-white border-white/20",
         links: [
           { type: "project", label: "Multi-Robot Coverage", target: "project-mrc" },
           { type: "course",  label: "Intro to AI (UNF)",    target: "edu-unf" },
-        ]
-      },
-    ]
-  },
-  {
-    category: "Backend & Databases",
-    skills: [
-      {
-        id: "fastapi", label: "FastAPI",
-        icon: "fastapi/05998B", iconColor: "#05998B",
-        chip: "bg-emerald-900/10 text-[#05998B] border-emerald-800/40",
-        links: [
-          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
-        ]
-      },
-      {
-        id: "django", label: "Django",
-        icon: "django/white", iconColor: "white",
-        chip: "bg-white/5 text-white border-white/20",
-        links: [
-          { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
-        ]
-      },
-      {
-        id: "postgresql", label: "PostgreSQL",
-        icon: "postgresql/4169E1", iconColor: "#4169E1",
-        chip: "bg-blue-900/20 text-[#4169E1] border-blue-800/40",
-        links: [
-          { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
-          { type: "course", label: "Databases", target: "edu-unf"}
-        ]
-      },
-      {
-        id: "go", label: "Go / Gin",
-        icon: "go/00ADD8", iconColor: "#00ADD8",
-        chip: "bg-blue-900/10 text-[#00ADD8] border-blue-800/40",
-        links: [
-          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
-        ]
-      },
-      {
-        id: "sqlite", label: "SQLite",
-        icon: "sqlite/06B6D4", iconColor: "#06B6D4",
-        chip: "bg-cyan-900/10 text-[#06B6D4] border-cyan-800/40",
-        links: [
-          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
-        ]
-      },
-      {
-        id: "java", label: "Java",
-        icon: "openjdk/F8981D", iconColor: "#F8981D",
-        chip: "bg-red-900/10 text-[#F8981D] border-red-800/40",
-        links: [
-          { type: "project", label: "Raspberry Pi Interface", target: "project-rpi" },
-          { type: "course", label: "Analysis of Algorithms", target: "edu-uf" },
-          { type: "course", label: "Databases", target: "edu-unf" },
-        ]
-      },
-    ]
-  },
-  {
-    category: "Frontend",
-    skills: [
-      {
-        id: "react", label: "React",
-        icon: "react/61DAFB", iconColor: "#61DAFB",
-        chip: "bg-blue-900/10 text-[#61DAFB] border-blue-800/40",
-        links: [
-          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
-        ]
-      },
-      {
-        id: "typescript", label: "TypeScript",
-        icon: "typescript/3178C6", iconColor: "#3178C6",
-        chip: "bg-blue-900/20 text-[#3178C6] border-[#3178C6]/30",
-        links: [
-          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
-          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
-        ]
-      },
-      {
-        id: "nextjs", label: "Next.js",
-        icon: "nextdotjs/white", iconColor: "white",
-        chip: "bg-white/5 text-white border-white/20",
-        links: [
-          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
         ]
       },
       {
@@ -165,36 +144,6 @@ const skillsData = [
           { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
         ]
       },
-      {
-        id: "angular", label: "Angular",
-        icon: "angular/DD0031", iconColor: "#DD0031",
-        chip: "bg-red-900/10 text-[#DD0031] border-red-800/40",
-        links: [
-          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
-        ]
-      },
-      {
-        id: "html", label: "HTML",
-        icon: "html5/E34F26" , iconColor: "#E34F26",
-        chip: "bg-orange-900/10 text-orange-400 border-orange-800/30",
-        links: [
-          { type: "exp", label: "Web Developer @ AUMC", target: "exp-church" },
-          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
-          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
-        ]
-      },
-      {
-        id: "css", label: "CSS",
-        icon: "css/663399" , iconColor: "#663399",
-        chip: "bg-purple-900/10 text-[#663399] border-purple-800/40",
-        links: [
-          { type: "exp", label: "Web Developer @ AUMC", target: "exp-church" },
-          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
-          { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
-          { type: "project", label: "Raspberry Pi Interface", target: "project-rpi" },
-        ]
-      },
-
     ]
   },
   {
