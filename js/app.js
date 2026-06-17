@@ -234,7 +234,7 @@ function showPopover(chipEl, links) {
       const { label, color } = typeLabel(type);
       html += `<p class="text-xs ${color} uppercase tracking-widest font-bold mb-1.5 mt-2 first:mt-0">${label}</p>`;
       grouped[type].forEach(l => {
-        html += `<button onclick="scrollToTarget('${l.target}')" class="block w-full text-left text-sm text-gray-400 hover:text-cyan-400 py-0.5 transition-colors truncate">↗ ${l.label}</button>`;
+        html += `<button onclick="scrollToTarget('${l.target}')" class="block w-full text-left text-sm text-gray-400 hover:text-cyan-400 cursor-pointer py-0.5 transition-colors truncate">↗ ${l.label}</button>`;
       });
     });
     popoverContent.innerHTML = html;
