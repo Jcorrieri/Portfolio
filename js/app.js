@@ -13,7 +13,7 @@ const skillsData = [
           { type: "project", label: "MoTorch",             target: "project-motorch" },
           { type: "project", label: "Multi-Robot Coverage",  target: "project-mrc" },
           { type: "project", label: "AeroAtlas",             target: "project-aeroatlas" },
-          { type: "exp",     label: "App Dev Intern @ FL Blue",  target: "exp-flblue" },
+          { type: "exp",     label: "IT Intern (SWE) @ FL Blue",  target: "exp-flblue" },
           { type: "exp",     label: "UF Internship @ UFIT",  target: "exp-ufit" },
           { type: "course",  label: "ML Engineering",        target: "edu-unf" },
           { type: "course",  label: "Computer Vision (UF)", target: "edu-uf" },
@@ -45,10 +45,19 @@ const skillsData = [
         icon: "postgresql/4169E1", iconColor: "#4169E1",
         chip: "bg-blue-900/20 text-[#4169E1] border-blue-800/40",
         links: [
-          { type: "exp",     label: "App Dev Intern @ FL Blue",  target: "exp-flblue" },
+          { type: "exp",     label: "IT Intern (SWE) @ FL Blue",  target: "exp-flblue" },
           { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
           { type: "project", label: "UF Marketplace", target: "project-marketplace" },
           { type: "course", label: "Databases", target: "edu-unf"},
+        ]
+      }, 
+      {
+        id: "clang", label: "C",
+        icon: "c/A8B9CC", iconColor: "#A8B9CC",
+        chip: "bg-sky-500/20 text-[#A8B9CC] border-sky-800/40",
+        links: [
+          { type: "course", label: "Systems Programming", target: "edu-unf"},
+          { type: "course", label: "Computer Architecture and Organization", target: "edu-unf"},
         ]
       }, 
       {
@@ -92,8 +101,8 @@ const skillsData = [
         icon: "fastapi/05998B", iconColor: "#05998B",
         chip: "bg-emerald-900/10 text-[#05998B] border-emerald-800/40",
         links: [
+          { type: "exp",     label: "IT Intern (SWE) @ FL Blue",  target: "exp-flblue" },
           { type: "project", label: "AeroAtlas", target: "project-aeroatlas" },
-          { type: "exp",     label: "App Dev Intern @ FL Blue",  target: "exp-flblue" },
         ]
       },
       {
@@ -104,6 +113,14 @@ const skillsData = [
           { type: "exp", label: "UF Internship @ UFIT", target: "exp-ufit" },
         ]
       },
+      {
+        id: "gin", label: "gin",
+        icon: "gin/008ECF", iconColor: "#008ECF",
+        chip: "bg-sky-900/20 text-[#008ECF] border-sky-400/40",
+        links: [
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+        ]
+      }, 
       {
         id: "pytorch", label: "PyTorch",
         icon: "pytorch/EE4C2C", iconColor: "#EE4C2C",
@@ -156,6 +173,25 @@ const skillsData = [
         links: [
           { type: "exp",     label: "UF Internship @ UFIT",  target: "exp-ufit" },
           { type: "project", label: "Raspberry Pi Interface", target: "project-rpi" },
+        ]
+      },
+      {
+        id: "gh-actions", label: "GitHub Actions",
+        icon: "githubactions/2088FF", iconColor: "#2088FF",
+        chip: "bg-blue-950/50 text-[#2088FF] border-blue-600/30",
+        links: [
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+          { type: "project", label: "MoTorch", target: "project-motorch" },
+        ]
+      },
+      {
+        id: "ruff", label: "Ruff",
+        icon: "ruff/D7FF64", iconColor: "#D7FF64",
+        chip: "bg-lime-950/50 text-[#D7FF64] border-lime-600/30",
+        links: [
+          { type: "exp",     label: "IT Intern (SWE) @ FL Blue",  target: "exp-flblue" },
+          { type: "project", label: "UF Marketplace", target: "project-marketplace" },
+          { type: "project", label: "MoTorch", target: "project-motorch" },
         ]
       },
       {
