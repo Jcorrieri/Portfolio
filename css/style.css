@@ -1,3 +1,75 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .project-card {
+    @apply flex flex-col overflow-hidden rounded-lg border border-gray-800;
+    @apply bg-gray-800/20 transition-all duration-500 hover:border-cyan-500/50;
+  }
+
+  .project-image {
+    @apply h-full w-full object-cover opacity-80 transition-opacity;
+    @apply group-hover:opacity-100;
+  }
+
+  .project-filter {
+    @apply cursor-pointer border-b-2 border-transparent px-4 py-2 text-sm font-bold;
+    @apply uppercase tracking-wider text-gray-500 transition-colors;
+    @apply hover:border-gray-600 hover:text-cyan-400;
+  }
+
+  .project-filter.active {
+    @apply border-cyan-500 text-cyan-400;
+  }
+
+  .project-filter span {
+    @apply ml-1 text-xs opacity-60;
+  }
+
+  .project-tag {
+    @apply rounded border border-gray-700 bg-gray-800 px-2 py-1 text-[10px];
+    @apply font-bold uppercase text-gray-400;
+  }
+
+  .project-tech {
+    @apply flex items-center gap-1.5 rounded border px-2 py-1 text-[10px];
+    @apply font-bold uppercase;
+  }
+
+  .project-tech-pytorch {
+    @apply border-orange-800/40 bg-orange-900/10 text-orange-400;
+  }
+
+  .project-tech-gymnasium {
+    @apply border-white/20 bg-white/5 text-white;
+  }
+
+  .project-tech-sb3 {
+    @apply border-blue-800/40 bg-blue-900/10 text-[#3A75C4];
+  }
+
+  .project-tech-tensorboard {
+    @apply border-orange-800/40 bg-orange-900/10 text-[#FF6F00];
+  }
+
+  .project-tech-nextjs {
+    @apply border-white/20 bg-white/5 text-white;
+  }
+
+  .project-tech-fastapi {
+    @apply border-emerald-800/40 bg-emerald-900/10 text-[#05998B];
+  }
+
+  .project-tech-typescript {
+    @apply border-[#3178C6]/30 bg-blue-900/20 text-[#3178C6];
+  }
+}
+
+.project-placeholder {
+  background-color: #030712;
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

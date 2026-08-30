@@ -84,8 +84,11 @@
           </svg>
           LINKEDIN
         </a>
-        <a href="./media/Corrieri_Jacomo_Resume.pdf" class="text-xs font-bold hover:text-white transition-colors" target="_blank"> 
-          📄 RESUME
+        <a href="mailto:jacorrieri@gmail.com"
+          class="flex flex-row gap-2 text-xs font-bold hover:text-white transition-colors">
+          <img src="https://cdn.simpleicons.org/gmail/white" class="w-4 h-4 opacity-60"
+            alt="Gmail">
+          EMAIL
         </a>
       </div>
     </header>
@@ -237,7 +240,9 @@
               <div class="flex flex-wrap items-center gap-x-4">
                 <h3 class="text-lg font-bold text-white uppercase tracking-tight">Research Computing Support Intern</h3>
               </div>
-              <span class="text-xs text-gray-600 font-bold tracking-wide whitespace-nowrap">Jan 2026 — Present</span>
+              <span class="text-xs text-gray-600 font-bold tracking-wide whitespace-nowrap">
+                Jan 2026 — Aug 2026
+              </span>
             </div>
             <p class="text-sm text-gray-400 font-bold mb-4">UF Information Technology (UFIT) &nbsp;·&nbsp; Gainesville, FL</p>
             <ul class="space-y-1.5 mb-5">
@@ -315,12 +320,24 @@
 
     <!-- ═══════════════════════════════════════ PROJECTS -->
     <section id="projects" class="space-y-12 scroll-mt-16">
-      <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold mb-10">Projects</h2>
+      <div class="mb-10">
+        <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold mb-8">
+          Projects
+        </h2>
+        <div class="flex flex-wrap gap-2" role="tablist"
+          aria-label="Project categories">
+          <button class="project-filter active" type="button" role="tab"
+            aria-selected="true" data-project-filter="swe">Software <span>(3)</span></button>
+          <button class="project-filter" type="button" role="tab"
+            aria-selected="false" data-project-filter="ml">Machine Learning <span>(3)</span></button>
+        </div>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
         <!-- MoTorch -->
-        <div id="project-motorch" class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col">
+        <div id="project-motorch" data-project-category="ml"
+          class="group project-card hidden">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
               <source src="https://www.dropbox.com/scl/fi/q70iucrtob5ht5ambhg56/motorch.mp4?rlkey=abljqy2x0v53lvsegmm8d9rpw&st=s4yxvs8f&raw=1" type="video/mp4" />
@@ -334,7 +351,10 @@
               </a>
             </div>
             <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
-                MoTorch is a lightweight, NumPy-based deep learning library inspired by the PyTorch API. It provides a Tensor container with automatic differentiation, neural network modules, optimization utilities, and loss functions for building and training models from scratch.
+              A PyTorch-inspired deep learning framework built on NumPy, with a dynamic
+              computational graph for reverse-mode autodiff, neural network modules,
+              optimizers, and loss functions. GitHub Actions runs linting and unit and
+              end-to-end tests on every change.
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-[#FFE873] border border-yellow-800/40 text-[10px] font-bold uppercase">
@@ -348,7 +368,8 @@
         </div>
 
         <!-- UF Marketplace -->
-        <div id="project-marketplace" class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col">
+        <div id="project-marketplace" data-project-category="swe"
+          class="group project-card">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
               <source src="https://www.dropbox.com/scl/fi/2poua9zby0y3qhcru9371/Screen-Recording-2026-05-16-195434.mp4?rlkey=bux5gd4ukjibg6l60ve8qku6u&st=s4zz9sl4&raw=1" type="video/mp4" />
@@ -362,7 +383,9 @@
               </a>
             </div>
             <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
-              A full-stack commerce platform for the UF community, featuring real-time messaging via websockets (Golang/Gorilla), persistent image uploads using AWS S3, and the ability for users to manage and engage with product listings. The backend exposes a RESTful API developed with Gin and uses JWTs for authentication. Websocket connections are handled using goroutines.
+              Led backend development of a full-stack marketplace for the UF community.
+              Built a Go and Gin REST API with JWT authentication, real-time WebSocket
+              messaging, indexed GORM schemas, and scalable image storage on AWS S3.
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/10 text-[#00ADD8] border border-blue-800/40 text-[10px] font-bold uppercase">
@@ -382,7 +405,7 @@
         </div>
 
         <!-- Multi-Robot -->
-        <div id="project-mrc" class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col">
+        <div id="project-mrc" data-project-category="ml" class="group project-card hidden">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" poster="./media/mrc_poster.png">
               <source src="https://www.dropbox.com/scl/fi/ce7aima1ojrkq7wmcnyrn/size25_seed1.mp4?rlkey=hjj2y4drpd6tq6cayzo2x9mxp&st=2994br7h&raw=1" type="video/mp4" />
@@ -396,19 +419,21 @@
               </a>
             </div>
             <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
-              A Multi-Agent PPO framework using CTDE for robotic area coverage. Employs a CNN backbone for spatial feature extraction from multi-channel grid observations. Combines reward shaping with decentralized policies to scale from 20 to 50 robots while maintaining continuous connectivity.
+              Trained CNN, DQN, and PPO agents with PyTorch and Ray RLlib for multi-robot
+              area coverage. The modular experiment framework achieved roughly 99% coverage
+              and connectivity with 20–50 robots—15% higher average coverage than prior work.
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-yellow-900/10 text-[#FFE873] border border-yellow-800/40 text-[10px] font-bold uppercase">
                 <img src="https://cdn.simpleicons.org/python/FFE873" class="w-3.5 h-3.5" alt=""> Python
               </span>
-              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-orange-900/10 text-orange-400 border border-orange-800/40 text-[10px] font-bold uppercase">
+              <span class="project-tech project-tech-pytorch">
                 <img src="https://cdn.simpleicons.org/pytorch/EE4C2C" class="w-3.5 h-3.5" alt=""> PyTorch
               </span>
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-blue-900/10 text-[#028CF0] border border-blue-800/40 text-[10px] font-bold uppercase">
                 <img src="https://cdn.simpleicons.org/ray/028CF0" class="w-3.5 h-3.5" alt=""> Ray RLlib
               </span>
-              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 text-white border border-white/20 text-[10px] font-bold uppercase">
+              <span class="project-tech project-tech-gymnasium">
                 <img src="https://cdn.simpleicons.org/openaigym/white" class="w-3.5 h-3.5" alt=""> Gymnasium
               </span>
             </div>
@@ -416,7 +441,7 @@
         </div>
 
         <!-- Raspberry Pi -->
-        <div id="project-rpi" class="group border border-gray-800 bg-gray-800/20 rounded-lg overflow-hidden hover:border-cyan-500/50 transition-all duration-500 flex flex-col">
+        <div id="project-rpi" data-project-category="swe" class="group project-card">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" poster="./media/gpiosc.jpg">
               <source src="https://www.dropbox.com/scl/fi/em17fuyba6vgzr0x7o9jp/RPI_Demo.mp4?rlkey=popepwmui1jpf4lnm0qpsb4xl&st=95pdr1ch&raw=1" type="video/mp4" />
@@ -425,7 +450,8 @@
           <div class="p-5 flex-grow flex flex-col">
             <div class="flex justify-between items-start mb-3">
               <h3 class="text-lg font-bold text-white tracking-tight leading-tight">Raspberry Pi Desktop Interface</h3>
-              <a href="https://github.com/Jcorrieri/Raspberry-Pi-Controller" target="_blank" class="opacity-80 hover:opacity-100 hover:scale-110 transition-all">
+              <a href="https://github.com/Jcorrieri/raspberrypi-dashboard" target="_blank"
+                class="opacity-80 hover:opacity-100 hover:scale-110 transition-all">
                 <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" class="w-6 h-6">
               </a>
             </div>
@@ -444,6 +470,96 @@
               </span>
               <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/50 text-[#FCC624] border border-yellow-600/30 text-[10px] font-bold uppercase">
                 <img src="https://cdn.simpleicons.org/linux/FCC624" class="w-3.5 h-3.5" alt=""> Linux
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AeroAtlas -->
+        <div id="project-aeroatlas" data-project-category="swe"
+          class="group project-card">
+          <div class="aspect-video w-full bg-black overflow-hidden">
+            <img src="./media/aeroatlas.jpg" alt="AeroAtlas travel planner interface"
+              class="project-image">
+          </div>
+          <div class="p-5 flex-grow flex flex-col">
+            <div class="flex justify-between items-start gap-4 mb-3">
+              <div>
+                <h3 class="text-lg font-bold text-white tracking-tight leading-tight">AeroAtlas</h3>
+                <p class="text-[10px] text-cyan-500 uppercase tracking-widest mt-1">
+                  2025 Audience Choice Award
+                </p>
+              </div>
+              <a href="https://github.com/Jcorrieri/aeroatlas-copy" target="_blank"
+                aria-label="View AeroAtlas on GitHub"
+                class="opacity-80 hover:opacity-100 hover:scale-110 transition-all shrink-0">
+                <img src="https://cdn.simpleicons.org/github/white" alt="" class="w-6 h-6">
+              </a>
+            </div>
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+              A full-stack travel itinerary planner built with Next.js, TypeScript, and
+              ShadCN. Integrated third-party travel APIs through FastAPI and used in-memory
+              caching to reduce latency. Won against more than 20 symposium teams.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="project-tech project-tech-nextjs">
+                <img src="https://cdn.simpleicons.org/nextdotjs/white"
+                  class="w-3.5 h-3.5" alt=""> Next.js
+              </span>
+              <span class="project-tech project-tech-fastapi">
+                <img src="https://cdn.simpleicons.org/fastapi/05998B"
+                  class="w-3.5 h-3.5" alt=""> FastAPI
+              </span>
+              <span class="project-tech project-tech-typescript">
+                <img src="https://cdn.simpleicons.org/typescript/3178C6"
+                  class="w-3.5 h-3.5" alt=""> TypeScript
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DQN Pathfinding -->
+        <div id="project-dqn" data-project-category="ml" class="group project-card hidden">
+          <div class="aspect-video w-full project-placeholder flex items-center justify-center">
+            <div class="text-center">
+              <span class="block text-4xl text-cyan-500/70 mb-3">◇ → ◆</span>
+              <span class="text-xs text-gray-500 uppercase tracking-[0.25em]">
+                Learned Pathfinding
+              </span>
+            </div>
+          </div>
+          <div class="p-5 flex-grow flex flex-col">
+            <div class="flex justify-between items-start gap-4 mb-3">
+              <h3 class="text-lg font-bold text-white tracking-tight leading-tight">
+                DQN Pathfinding
+              </h3>
+              <a href="https://github.com/Jcorrieri/dqn-path-finding" target="_blank"
+                aria-label="View DQN Pathfinding on GitHub"
+                class="opacity-80 hover:opacity-100 hover:scale-110 transition-all shrink-0">
+                <img src="https://cdn.simpleicons.org/github/white" alt="" class="w-6 h-6">
+              </a>
+            </div>
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+              Reimplemented a deep reinforcement learning paper with a CNN-based DQN and
+              custom training and evaluation environments. Logged experiments in TensorBoard
+              and compared the learned policy against an A* pathfinding agent.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-orange-900/10 text-orange-400 border border-orange-800/40 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/pytorch/EE4C2C"
+                  class="w-3.5 h-3.5" alt=""> PyTorch
+              </span>
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 text-white border border-white/20 text-[10px] font-bold uppercase">
+                <img src="https://cdn.simpleicons.org/openaigym/white"
+                  class="w-3.5 h-3.5" alt=""> Gymnasium
+              </span>
+              <span class="project-tech project-tech-sb3">
+                <span class="w-3.5 h-3.5 flex items-center justify-center">SB3</span>
+                Stable-Baselines3
+              </span>
+              <span class="project-tech project-tech-tensorboard">
+                <img src="https://cdn.simpleicons.org/tensorflow/FF6F00"
+                  class="w-3.5 h-3.5" alt=""> TensorBoard
               </span>
             </div>
           </div>

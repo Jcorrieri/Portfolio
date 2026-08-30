@@ -127,6 +127,7 @@ const skillsData = [
         chip: "bg-orange-900/10 text-orange-400 border-orange-800/40",
         links: [
           { type: "project", label: "Multi-Robot Coverage", target: "project-mrc" },
+          { type: "project", label: "DQN Pathfinding", target: "project-dqn" },
           { type: "course",  label: "Computer Vision (UF)", target: "edu-uf" },
           { type: "course",  label: "ML Engineering (UF)",  target: "edu-uf" },
           { type: "course",  label: "ML w/ Graphs (UNF)",   target: "edu-unf" },
@@ -150,7 +151,16 @@ const skillsData = [
         chip: "bg-white/5 text-white border-white/20",
         links: [
           { type: "project", label: "Multi-Robot Coverage", target: "project-mrc" },
+          { type: "project", label: "DQN Pathfinding", target: "project-dqn" },
           { type: "course",  label: "Intro to AI (UNF)",    target: "edu-unf" },
+        ]
+      },
+      {
+        id: "stable-baselines", label: "Stable-Baselines3",
+        icon: null, iconColor: null,
+        chip: "bg-blue-900/10 text-[#3A75C4] border-blue-800/40",
+        links: [
+          { type: "project", label: "DQN Pathfinding", target: "project-dqn" },
         ]
       },
       {
@@ -182,6 +192,14 @@ const skillsData = [
         links: [
           { type: "project", label: "UF Marketplace", target: "project-marketplace" },
           { type: "project", label: "MoTorch", target: "project-motorch" },
+        ]
+      },
+      {
+        id: "tensorboard", label: "TensorBoard",
+        icon: "tensorflow/FF6F00", iconColor: "#FF6F00",
+        chip: "bg-orange-900/10 text-[#FF6F00] border-orange-800/40",
+        links: [
+          { type: "project", label: "DQN Pathfinding", target: "project-dqn" },
         ]
       },
       {
@@ -312,6 +330,9 @@ function scrollToTarget(targetId) {
   hidePopover();
   const el = document.getElementById(targetId);
   if (!el) return;
+  if (el.dataset.projectCategory) {
+    filterProjects(el.dataset.projectCategory);
+  }
   el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   el.classList.add('scroll-highlight');
   setTimeout(() => el.classList.remove('scroll-highlight'), 1600);
@@ -345,6 +366,28 @@ document.addEventListener('click', e => {
 });
 
 window.addEventListener('scroll', hidePopover, { passive: true });
+
+// Project category filters
+const projectFilters = document.querySelectorAll('[data-project-filter]');
+const projectCards = document.querySelectorAll('[data-project-category]');
+
+function filterProjects(category) {
+  projectCards.forEach(card => {
+    card.classList.toggle('hidden', card.dataset.projectCategory !== category);
+  });
+
+  projectFilters.forEach(button => {
+    const isActive = button.dataset.projectFilter === category;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-selected', String(isActive));
+  });
+}
+
+projectFilters.forEach(button => {
+  button.addEventListener('click', () => {
+    filterProjects(button.dataset.projectFilter);
+  });
+});
 
 // ── Active nav link via IntersectionObserver ───────────────────────────────
 const navLinks = document.querySelectorAll('.nav-link');
