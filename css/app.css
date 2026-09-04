@@ -942,10 +942,6 @@
     --tw-tracking: 0.18em;
     letter-spacing: 0.18em;
   }
-  .tracking-\[0\.25em\] {
-    --tw-tracking: 0.25em;
-    letter-spacing: 0.25em;
-  }
   .tracking-tight {
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
@@ -972,9 +968,6 @@
   }
   .text-\[\#008ECF\] {
     color: #008ECF;
-  }
-  .text-\[\#028CF0\] {
-    color: #028CF0;
   }
   .text-\[\#777BB4\] {
     color: #777BB4;
@@ -1041,12 +1034,6 @@
   }
   .text-cyan-500 {
     color: var(--color-cyan-500);
-  }
-  .text-cyan-500\/70 {
-    color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 70%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-cyan-500) 70%, transparent);
-    }
   }
   .text-emerald-500 {
     color: var(--color-emerald-500);
@@ -1225,6 +1212,11 @@
   .sm\:justify-between {
     @media (width >= 40rem) {
       justify-content: space-between;
+    }
+  }
+  .md\:col-span-2 {
+    @media (width >= 48rem) {
+      grid-column: span 2 / span 2;
     }
   }
   .md\:ml-12 {
