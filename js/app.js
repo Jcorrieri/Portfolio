@@ -367,28 +367,6 @@ document.addEventListener('click', e => {
 
 window.addEventListener('scroll', hidePopover, { passive: true });
 
-// Project category filters
-const projectFilters = document.querySelectorAll('[data-project-filter]');
-const projectCards = document.querySelectorAll('[data-project-category]');
-
-function filterProjects(category) {
-  projectCards.forEach(card => {
-    card.classList.toggle('hidden', card.dataset.projectCategory !== category);
-  });
-
-  projectFilters.forEach(button => {
-    const isActive = button.dataset.projectFilter === category;
-    button.classList.toggle('active', isActive);
-    button.setAttribute('aria-selected', String(isActive));
-  });
-}
-
-projectFilters.forEach(button => {
-  button.addEventListener('click', () => {
-    filterProjects(button.dataset.projectFilter);
-  });
-});
-
 // ── Active nav link via IntersectionObserver ───────────────────────────────
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
