@@ -248,15 +248,27 @@
             <ul class="space-y-1.5 mb-5">
               <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
                 <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-                Developed a Python CLI and Django-Ninja API for querying 800M+ rows of Lmod data on HiPerGator, allowing research computing staff to analyze software usage across the cluster.
+                Enabled querying of 800M+ records of software-usage data on HiPerGator, the
+                University of Florida's supercomputing cluster, by developing a Python CLI and
+                Django REST API for researchers and staff.
               </li>
               <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
                 <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-                Containerized and deployed the API and PostgreSQL database using Podman Quadlet, implementing JWT-based authentication for secure access.
+                Reduced long-running queries from minutes to milliseconds by precomputing
+                aggregates in nightly Slurm ETL jobs, processing 80k+ records per day in an
+                idempotent manner.
               </li>
               <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
                 <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
-                Optimized query performance using nightly precomputed tables, reducing latency from minutes to milliseconds.
+                Containerized and deployed the API and PostgreSQL database to production using
+                Podman Quadlet to manage containers as systemd units, securing endpoints with
+                asymmetric RS256 JWT-based authentication.
+              </li>
+              <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
+                <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+                Supported 3700+ active faculty, students, and staff through ticket triage by
+                installing, updating, and debugging HPC applications written in C++, Python,
+                and R on a Linux environment.
               </li>
             </ul>
             <div class="flex flex-wrap gap-2">
@@ -296,6 +308,10 @@
               <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
                 <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
                 Implemented a pictorial directory, migrating hand-collected forms to 20+ member entries via server-side scripting.
+              </li>
+              <li class="flex gap-2 text-sm text-gray-500 leading-relaxed">
+                <span class="text-cyan-500 mt-0.5 shrink-0">▹</span>
+                Collaborated with trustees to implement design and content requirements.
               </li>
             </ul>
             <div class="flex flex-wrap gap-2">
