@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-600: oklch(57.7% 0.245 27.325);
     --color-red-700: oklch(50.5% 0.213 27.518);
     --color-red-800: oklch(44.4% 0.177 26.899);
     --color-red-900: oklch(39.6% 0.141 25.723);
@@ -25,6 +24,7 @@
     --color-emerald-900: oklch(37.8% 0.077 168.94);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
     --color-cyan-500: oklch(71.5% 0.143 215.221);
+    --color-cyan-600: oklch(60.9% 0.126 221.723);
     --color-cyan-800: oklch(45% 0.085 224.283);
     --color-cyan-900: oklch(39.8% 0.07 227.392);
     --color-sky-400: oklch(74.6% 0.16 232.661);
@@ -583,6 +583,12 @@
       border-color: color-mix(in oklab, var(--color-cyan-500) 30%, transparent);
     }
   }
+  .border-cyan-600\/30 {
+    border-color: color-mix(in srgb, oklch(60.9% 0.126 221.723) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-cyan-600) 30%, transparent);
+    }
+  }
   .border-cyan-800\/40 {
     border-color: color-mix(in srgb, oklch(45% 0.085 224.283) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -638,12 +644,6 @@
     border-color: color-mix(in srgb, oklch(43.8% 0.218 303.724) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-purple-800) 40%, transparent);
-    }
-  }
-  .border-red-600\/30 {
-    border-color: color-mix(in srgb, oklch(57.7% 0.245 27.325) 30%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-red-600) 30%, transparent);
     }
   }
   .border-red-700\/40 {
@@ -733,6 +733,12 @@
       background-color: color-mix(in oklab, var(--color-cyan-900) 10%, transparent);
     }
   }
+  .bg-cyan-900\/20 {
+    background-color: color-mix(in srgb, oklch(39.8% 0.07 227.392) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-cyan-900) 20%, transparent);
+    }
+  }
   .bg-emerald-900\/10 {
     background-color: color-mix(in srgb, oklch(37.8% 0.077 168.94) 10%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -779,12 +785,6 @@
     background-color: color-mix(in srgb, oklch(40.8% 0.153 2.432) 10%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-pink-900) 10%, transparent);
-    }
-  }
-  .bg-pink-900\/20 {
-    background-color: color-mix(in srgb, oklch(40.8% 0.153 2.432) 20%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-pink-900) 20%, transparent);
     }
   }
   .bg-purple-900\/10 {
@@ -969,6 +969,9 @@
   .text-\[\#008ECF\] {
     color: #008ECF;
   }
+  .text-\[\#61DAFB\] {
+    color: #61DAFB;
+  }
   .text-\[\#777BB4\] {
     color: #777BB4;
   }
@@ -1019,9 +1022,6 @@
   }
   .text-\[\#FCC624\] {
     color: #FCC624;
-  }
-  .text-\[\#FF4B4B\] {
-    color: #FF4B4B;
   }
   .text-\[\#FF6F00\] {
     color: #FF6F00;
