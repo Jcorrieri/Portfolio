@@ -59,7 +59,13 @@ const skillsData = [
           { type: "course", label: "Systems Programming", target: "edu-unf"},
           { type: "course", label: "Computer Architecture and Organization", target: "edu-unf"},
         ]
-      }, 
+      },
+      {
+        id: "cpp", label: "C++",
+        icon: "cplusplus/00599C", iconColor: "#00599C",
+        chip: "bg-blue-900/20 text-[#5E97D0] border-blue-800/40",
+        links: []
+      },
       {
         id: "html", label: "HTML",
         icon: "html5/E34F26" , iconColor: "#E34F26",
