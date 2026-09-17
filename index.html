@@ -342,13 +342,27 @@
         <h2 class="text-xl uppercase tracking-[0.2em] text-cyan-500 font-bold mb-8">
           Projects
         </h2>
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Project categories">
+          <button class="project-filter active" type="button" role="tab"
+            aria-selected="true" tabindex="0" data-project-filter="full-stack">
+            Full-Stack <span>(2)</span>
+          </button>
+          <button class="project-filter" type="button" role="tab"
+            aria-selected="false" tabindex="-1" data-project-filter="machine-learning">
+            Machine Learning <span>(2)</span>
+          </button>
+          <button class="project-filter" type="button" role="tab"
+            aria-selected="false" tabindex="-1" data-project-filter="systems">
+            Systems <span>(2)</span>
+          </button>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
         <!-- MoTorch -->
-        <div id="project-motorch"
-          class="group project-card">
+        <div id="project-motorch" data-project-category="machine-learning"
+          class="group project-card hidden">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
               <source src="https://www.dropbox.com/scl/fi/q70iucrtob5ht5ambhg56/motorch.mp4?rlkey=abljqy2x0v53lvsegmm8d9rpw&st=s4yxvs8f&raw=1" type="video/mp4" />
@@ -379,7 +393,7 @@
         </div>
 
         <!-- UF Marketplace -->
-        <div id="project-marketplace" 
+        <div id="project-marketplace" data-project-category="full-stack"
           class="group project-card">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
@@ -415,8 +429,55 @@
           </div>
         </div>
 
+        <!-- Multi-Agent Reinforcement Learning -->
+        <div id="project-mrc" data-project-category="machine-learning"
+          class="group project-card hidden">
+          <div class="aspect-video w-full bg-black overflow-hidden">
+            <video controls poster="./media/mrc_poster.png"
+              class="w-full h-full object-cover opacity-80 transition-opacity
+                group-hover:opacity-100">
+              <source
+                src="https://www.dropbox.com/scl/fi/ce7aima1ojrkq7wmcnyrn/size25_seed1.mp4?rlkey=hjj2y4drpd6tq6cayzo2x9mxp&amp;st=2994br7h&amp;raw=1"
+                type="video/mp4">
+            </video>
+          </div>
+          <div class="p-5 flex-grow flex flex-col">
+            <div class="flex justify-between items-start gap-4 mb-3">
+              <h3 class="text-lg font-bold text-white tracking-tight leading-tight">
+                Multi-Robot Area Coverage (MARL)
+              </h3>
+              <a href="https://github.com/Jcorrieri/multiagent-gridworld" target="_blank"
+                aria-label="View Multi-Robot Area Coverage on GitHub"
+                class="opacity-80 hover:opacity-100 hover:scale-110 transition-all shrink-0">
+                <img src="https://cdn.simpleicons.org/github/white" alt="" class="w-6 h-6">
+              </a>
+            </div>
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+              Trained CNN, DQN, and PPO agents with PyTorch and Ray RLlib for
+              multi-robot area coverage. The experiment framework achieved roughly 99%
+              coverage and connectivity with 20–50 robots.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="project-tech border-yellow-800/40 bg-yellow-900/10
+                text-[#FFE873]">
+                <img src="https://cdn.simpleicons.org/python/FFE873"
+                  class="w-3.5 h-3.5" alt=""> Python
+              </span>
+              <span class="project-tech project-tech-pytorch">
+                <img src="https://cdn.simpleicons.org/pytorch/EE4C2C"
+                  class="w-3.5 h-3.5" alt=""> PyTorch
+              </span>
+              <span class="project-tech border-blue-800/40 bg-blue-900/10
+                text-[#028CF0]">
+                <img src="https://cdn.simpleicons.org/ray/028CF0"
+                  class="w-3.5 h-3.5" alt=""> Ray RLlib
+              </span>
+            </div>
+          </div>
+        </div>
+
         <!-- AeroAtlas -->
-        <div id="project-aeroatlas"
+        <div id="project-aeroatlas" data-project-category="full-stack"
           class="group project-card">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" poster="./media/aeroatlas.jpg">
@@ -456,8 +517,48 @@
           </div>
         </div>
 
+        <!-- DNS Cache -->
+        <div id="project-dns-cache" data-project-category="systems"
+          class="group project-card hidden">
+          <div class="aspect-video w-full project-placeholder flex items-center justify-center">
+            <div class="text-center" aria-hidden="true">
+              <span class="block text-4xl text-cyan-500/70 mb-3">⇄</span>
+              <span class="text-xs text-gray-500 uppercase tracking-[0.25em]">
+                DNS Cache
+              </span>
+            </div>
+          </div>
+          <div class="p-5 flex-grow flex flex-col">
+            <div class="flex justify-between items-start gap-4 mb-3">
+              <h3 class="text-lg font-bold text-white tracking-tight leading-tight">
+                DNS Cache
+              </h3>
+              <a href="https://github.com/Jcorrieri/dns-cache" target="_blank"
+                aria-label="View DNS Cache on GitHub"
+                class="opacity-80 hover:opacity-100 hover:scale-110 transition-all shrink-0">
+                <img src="https://cdn.simpleicons.org/github/white" alt="" class="w-6 h-6">
+              </a>
+            </div>
+            <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+              A C++ DNS caching experiment inspired by Cloudflare's Big Pineapple work.
+              Explores cache data structures and performance optimizations while measuring
+              their memory and lookup-time tradeoffs.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="project-tech border-blue-800/40 bg-blue-900/20 text-[#5E97D0]">
+                <img src="https://cdn.simpleicons.org/cplusplus/00599C"
+                  class="w-3.5 h-3.5" alt=""> C++
+              </span>
+              <span class="project-tag">CMake</span>
+              <span class="project-tag">Concurrency</span>
+              <span class="project-tag">UNIX Sockets</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Raspberry Pi -->
-        <div id="project-rpi" class="group project-card">
+        <div id="project-rpi" data-project-category="systems"
+          class="group project-card hidden">
           <div class="aspect-video w-full bg-black overflow-hidden">
             <video controls class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" poster="./media/gpiosc.jpg">
               <source src="https://www.dropbox.com/scl/fi/em17fuyba6vgzr0x7o9jp/RPI_Demo.mp4?rlkey=popepwmui1jpf4lnm0qpsb4xl&st=95pdr1ch&raw=1" type="video/mp4" />
@@ -491,13 +592,14 @@
           </div>
         </div>
 
-        <div class="text-center md:col-span-2 py-10">
+      </div>
+
+        <div class="text-center py-10">
           <a href="https://github.com/Jcorrieri?tab=repositories" target="_blank"
              class="text-md font-bold text-gray-500 hover:text-cyan-400 transition-colors tracking-widest">
             [ VIEW ALL PROJECTS ]
           </a>
         </div>
-      </div>
     </section>
 
   </main>

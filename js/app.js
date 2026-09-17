@@ -64,7 +64,9 @@ const skillsData = [
         id: "cpp", label: "C++",
         icon: "cplusplus/00599C", iconColor: "#00599C",
         chip: "bg-blue-900/20 text-[#5E97D0] border-blue-800/40",
-        links: []
+        links: [
+          { type: "project", label: "DNS Cache", target: "project-dns-cache" },
+        ]
       },
       {
         id: "html", label: "HTML",
@@ -372,6 +374,36 @@ document.addEventListener('click', e => {
 });
 
 window.addEventListener('scroll', hidePopover, { passive: true });
+
+// ── Project category tabs ──────────────────────────────────────────────────
+const projectFilters = [...document.querySelectorAll('[data-project-filter]')];
+const projectCards = document.querySelectorAll('[data-project-category]');
+
+function filterProjects(category) {
+  projectCards.forEach(card => {
+    card.classList.toggle('hidden', card.dataset.projectCategory !== category);
+  });
+
+  projectFilters.forEach(button => {
+    const isActive = button.dataset.projectFilter === category;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-selected', String(isActive));
+    button.tabIndex = isActive ? 0 : -1;
+  });
+}
+
+projectFilters.forEach((button, index) => {
+  button.addEventListener('click', () => filterProjects(button.dataset.projectFilter));
+  button.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    const offset = event.key === 'ArrowRight' ? 1 : -1;
+    const nextIndex = (index + offset + projectFilters.length) % projectFilters.length;
+    const nextButton = projectFilters[nextIndex];
+    filterProjects(nextButton.dataset.projectFilter);
+    nextButton.focus();
+  });
+});
 
 // ── Active nav link via IntersectionObserver ───────────────────────────────
 const navLinks = document.querySelectorAll('.nav-link');
