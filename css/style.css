@@ -13,27 +13,13 @@
     @apply group-hover:opacity-100;
   }
 
-  .project-filter {
-    @apply cursor-pointer border-b-2 border-transparent px-4 py-2 text-sm font-bold;
-    @apply uppercase tracking-wider text-gray-500 transition-colors;
-    @apply hover:border-gray-600 hover:text-cyan-400;
-  }
-
-  .project-filter.active {
-    @apply border-cyan-500 text-cyan-400;
-  }
-
-  .project-filter span {
-    @apply ml-1 text-xs opacity-60;
-  }
-
   .project-tag {
-    @apply rounded border border-gray-700 bg-gray-800 px-2 py-1 text-[10px];
+    @apply rounded border border-gray-700 bg-gray-800 px-2.5 py-1.5 text-xs;
     @apply font-bold uppercase text-gray-400;
   }
 
   .project-tech {
-    @apply flex items-center gap-1.5 rounded border px-2 py-1 text-[10px];
+    @apply flex items-center gap-1.5 rounded border px-2.5 py-1.5 text-xs;
     @apply font-bold uppercase;
   }
 
