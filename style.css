@@ -182,14 +182,14 @@ a:focus-visible {
 
 .intro-bottom {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   margin-top: 36px;
 }
 
 .intro-summary {
-  max-width: 560px;
+  max-width: 640px;
 }
 
 .intro-copy {
@@ -207,42 +207,28 @@ a:focus-visible {
   font-weight: 600;
 }
 
-.focus-card {
-  padding: 20px 22px;
-  background: #eef0e9;
-  border: 1px solid var(--line);
-}
-
-.focus-card h2 {
-  margin: 0 0 16px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.focus-card ul {
+.focus-icons ul {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 20px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.focus-card li {
-  display: flex;
+.focus-icons li {
+  display: grid;
+  justify-items: center;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   font-size: 13px;
   font-weight: 600;
+  text-align: center;
 }
 
-.focus-card img {
-  width: 27px;
-  height: 27px;
+.focus-icons img {
+  width: 52px;
+  height: 52px;
   flex: 0 0 auto;
   object-fit: contain;
 }
@@ -779,6 +765,10 @@ a:focus-visible {
   color: var(--ink);
 }
 
+.simpleicons-credit {
+  font-size: 11px;
+}
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -962,6 +952,17 @@ a:focus-visible {
   .recognition-row p {
     font-size: 12px;
     line-height: 1.6;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .intro-bottom {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .focus-icons ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
