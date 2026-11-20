@@ -1,24 +1,22 @@
-import { copyFileSync, mkdirSync } from 'node:fs'
+import { cpSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 
 const rootDir = dirname(fileURLToPath(import.meta.url))
 
-function copyDocuments() {
+function copyMedia() {
   return {
-    name: 'copy-portfolio-documents',
+    name: 'copy-portfolio-media',
     closeBundle() {
-      const outputDir = resolve(rootDir, 'dist', 'media')
-      mkdirSync(outputDir, { recursive: true })
-
-      for (const file of ['Corrieri_Jacomo_Resume.pdf', 'MARCC_Final.pdf']) {
-        copyFileSync(resolve(rootDir, 'media', file), resolve(outputDir, file))
-      }
+      cpSync(resolve(rootDir, 'media'), resolve(rootDir, 'dist', 'media'), {
+        recursive: true,
+      })
     },
   }
 }
 
 export default defineConfig({
-  plugins: [copyDocuments()],
+  base: '/Portfolio/',
+  plugins: [copyMedia()],
 })
