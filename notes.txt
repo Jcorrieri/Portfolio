@@ -1,0 +1,114 @@
+Want to show:
+
+HERO: 
+
+Jacomo Corrieri
+Github: github.com/Jcorrieri
+LinkedIn: linkedin.com/in/jacomo-corrieri/
+Resume: media/resume
+
+About:
+---
+Hi, I'm Jacomo, a master’s student at the University of Florida studying computer science. I have experience in full-stack software development (TypeScript, Python/Go, SQL) and a publication in reinforcement learning research (CNNs, PyTorch). I'm currently diving deeper into GPU and systems programming (C++, CUDA, Linux)!
+---
+
+Research! With pictures & video
+===============================
+ICTAI 2026
+Scalable Multi-robot Coverage with Connectivity Maintenance Via Deep Reinforcement Learning
+
+Jacomo Corrieri  ·  Iliya Kulbaka  ·  Anirban Ghosh  ·  Ayan Dutta
+
+First author publication
+
+My first every publication, this research studies the feasibility of reinforcement learning for multi-robot area coverage 
+with communication constraints -- the robots must remain in a connected team formation throughout exploration. As first author,
+I led the engineering effort of creating an end-to-end experimentation framework: the simulation environment, map and obstacle generation,
+PyTorch neural network models, reward functions, and customizable parameters -- each component being modular to allow for quick iterations. 
+In our approach, agents leverage convolutional neural networks (CNNs) to process multi-channel observations of the world and team state.
+During training, a centralized critic guides agent decisions, but during evaluation, agents are limited to their own partial views, 
+a methodology known as Centralized Training, Decentralized Execution (CTDE). 
+
+Key Contributions:
+* Simulated up to 50 autonomous robots with Python and Gymnasium, achieving 5x more scalability than prior work.
+* Developed a decentralized CNN model with PyTorch, resulting in 15% greater area coverage compared to our baseline.
+* Visualized performance metrics with Matplotlib and TensorBoard for data analysis and model evaluations.
+    
+GitHub link: https://github.com/Jcorrieri/multiagent-gridworld
+Media links (under media/): ictai.jpg, ictai-badge.jpg, MARCC_Final.pdf
+Idea: Since I don't have an explicit presentation photo, maybe a collage of ictai.jpg with the badge pic and a picture from MARCC_Final.pdf
+===============================
+
+WORK EXPERIENCE (Should be chronological...)
+
+FLORIDA BLUE:
+=============
+
+Can't show anything since it's internal
+
+(Rewrite Later)
+▹ Aggregated data across 8 tables and 2 databases with SQL and Java for enterprise data-driven applications.
+▹ Created and improved 28 REST API endpoints in FastAPI and Spring Boot serving React UIs, tested with PyTest.
+▹ Built a React dashboard to visualize migration failure metrics, accelerating root-cause analysis by engineering teams.
+▹ Supported CI/CD with GitLab, Jenkins, and OpenShift; wrote Agile user stories in Rally and system documentation.
+
+=============
+
+**HIPERGATOR:
+===============
+University of Florida
+
+(Rewrite later)
+
+Built and deployed a Python CLI and Django REST API to analyze metrics for 800M+ software usage records.
+Resolved 30+ HPC issues for HiPerGator users via root-cause analysis, including an 8-month backlog ticket.
+Decreased long-running query latency by 10–30× by caching read-heavy filesystem data in PostgreSQL tables.
+Automated nightly Slurm cron jobs for data ingestion and containerized production applications with Podman.
+
+Media Links (under media/): hpg.jpg 
+===============
+
+Projects:
+========
+Tiny DNS Cache:
+---
+Github: https://github.com/Jcorrieri/dns-cache
+---
+
+MoTorch:
+---
+A PyTorch-inspired deep learning framework built on NumPy, with a dynamic computational graph for reverse-mode autodiff, neural network modules, optimizers, and loss functions.
+
+Github: https://github.com/Jcorrieri/motorch
+Media: TBD
+---
+
+UF Student Marketplace:
+---
+Led backend development of a full-stack marketplace for the UF community. Built a Go and Gin REST API with JWT authentication, real-time WebSocket messaging, indexed GORM schemas, and scalable image storage on AWS S3.
+
+Github: https://github.com/Jcorrieri/uf-marketplace
+Media: TBD
+---
+
+Challenges:
+===
+AeroAtlas victory
+---
+AeroAtlas won the Audience Choice Award at the 2025 UNF School of Computing Symposium.
+
+AeroAtlas is a travel itinerary generator that creates personalized trip plans based on user input, incorporating activities, images, and local insights.
+Collaboration of four five team members.
+
+Media: aeroatlas.jpeg
+GitHub: https://github.com/Jcorrieri/aeroatlas-copy
+---
+
+UNF 2024 Nestforahile programming competition
+
+(2nd place)
+Link: https://www.unf.edu/newsroom/2024/11/NestforAwhile-Competition.html
+===
+
+Coursework and current endeavors:
+GPU Programming (CUDA, C++) and Distributed Operating Systems
