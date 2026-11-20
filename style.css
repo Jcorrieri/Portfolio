@@ -9,9 +9,9 @@
   --muted: #727b76;
   --line: #dfe2dc;
   --paper: #f7f7f3;
-  --green: #315c4c;
-  --orange: #c65c37;
-  --mono: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  --green: #187bdb;
+  --orange: #4b74e8;
+  --mono: system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 * {
@@ -50,7 +50,7 @@ a:focus-visible {
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .wordmark {
@@ -104,6 +104,10 @@ a:focus-visible {
   flex: 1;
   margin-left: 42px;
   font-weight: 550;
+}
+
+.menu-toggle {
+  display: none;
 }
 
 .site-header nav a,
@@ -269,7 +273,7 @@ a:focus-visible {
 .section-label {
   margin: 7px 0 0;
   color: var(--muted);
-  font-size: 19px;
+  font-size: 28px;
 }
 
 .about h2 {
@@ -343,7 +347,7 @@ a:focus-visible {
 .authors {
   margin: 0;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .authors span {
@@ -365,7 +369,7 @@ a:focus-visible {
   max-width: 630px;
   margin: 0;
   color: #59615d;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.8;
 }
 
@@ -448,7 +452,7 @@ a:focus-visible {
   margin-top: 9px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .paper-link {
@@ -518,7 +522,7 @@ a:focus-visible {
   padding-top: 5px;
   color: var(--muted);
   line-height: 1.6;
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .experience-main h3 {
@@ -538,7 +542,7 @@ a:focus-visible {
   max-width: 660px;
   margin: 0;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.75;
 }
 
@@ -554,7 +558,7 @@ a:focus-visible {
   color: #53615a;
   background: #eceee8;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .row-arrow {
@@ -640,12 +644,13 @@ a:focus-visible {
   margin: 0 0 12px;
   color: var(--orange);
   text-transform: uppercase;
+  font-size: 13px;
 }
 
 .project-copy h3 {
   margin: 0 0 10px;
   font-family: 'Manrope', sans-serif;
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 600;
   letter-spacing: -0.05em;
 }
@@ -654,7 +659,7 @@ a:focus-visible {
   max-width: 440px;
   margin: 0 0 20px;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 19px;
   line-height: 1.7;
 }
 
@@ -707,7 +712,7 @@ a:focus-visible {
   margin-top: 9px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .recognition-row {
@@ -721,13 +726,13 @@ a:focus-visible {
 
 .recognition-row > span {
   color: var(--muted);
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .recognition-row p {
   margin: 0;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .recognition-row strong {
@@ -795,11 +800,56 @@ a:focus-visible {
     padding-inline: 6vw;
   }
 
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .menu-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+  }
+
   .site-header nav {
-    flex-wrap: wrap;
-    gap: 4px 14px;
-    margin-left: 8px;
-    font-size: 14px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 8px 6vw 14px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    font-size: 18px;
+  }
+
+  .site-header nav.is-open {
+    display: flex;
+  }
+
+  .site-header nav a {
+    padding: 10px 0;
+    text-align: right;
+  }
+
+  .site-header nav .header-link {
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .section-wrap {
@@ -954,12 +1004,12 @@ a:focus-visible {
   }
 
   .recognition-row {
-    grid-template-columns: 48px 1fr auto;
-    gap: 14px;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 16px;
   }
 
   .recognition-row p {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.6;
   }
 }
