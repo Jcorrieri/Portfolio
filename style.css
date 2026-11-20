@@ -50,7 +50,7 @@ a:focus-visible {
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .wordmark {
@@ -149,7 +149,7 @@ a:focus-visible {
 .project-type,
 .recognition-row > span {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.03em;
 }
 
@@ -200,7 +200,7 @@ a:focus-visible {
   max-width: none;
   margin: 0;
   color: #59615d;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.7;
 }
 
@@ -225,7 +225,7 @@ a:focus-visible {
   justify-items: center;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
 }
@@ -273,7 +273,7 @@ a:focus-visible {
 .section-label {
   margin: 7px 0 0;
   color: var(--muted);
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .about h2 {
@@ -333,7 +333,7 @@ a:focus-visible {
   max-width: 850px;
   margin: 10px 0 12px;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.08;
   font-weight: 500;
   letter-spacing: -0.065em;
@@ -347,7 +347,7 @@ a:focus-visible {
 .authors {
   margin: 0;
   color: var(--muted);
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .authors span {
@@ -369,7 +369,7 @@ a:focus-visible {
   max-width: 630px;
   margin: 0;
   color: #59615d;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -410,14 +410,14 @@ a:focus-visible {
 
 .research-stats strong {
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.06em;
 }
 
 .research-stats span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .research-gallery {
@@ -452,7 +452,7 @@ a:focus-visible {
   margin-top: 9px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .paper-link {
@@ -491,13 +491,13 @@ a:focus-visible {
 }
 
 .paper-link strong {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .paper-link small {
   margin-top: 5px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .experience-section {
@@ -522,13 +522,13 @@ a:focus-visible {
   padding-top: 5px;
   color: var(--muted);
   line-height: 1.6;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .experience-main h3 {
   margin: 0 0 10px;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.04em;
 }
@@ -542,7 +542,7 @@ a:focus-visible {
   max-width: 660px;
   margin: 0;
   color: var(--muted);
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.75;
 }
 
@@ -558,7 +558,7 @@ a:focus-visible {
   color: #53615a;
   background: #eceee8;
   font-family: var(--mono);
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .row-arrow {
@@ -644,13 +644,13 @@ a:focus-visible {
   margin: 0 0 12px;
   color: var(--orange);
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .project-copy h3 {
   margin: 0 0 10px;
   font-family: 'Manrope', sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.05em;
 }
@@ -659,7 +659,7 @@ a:focus-visible {
   max-width: 440px;
   margin: 0 0 20px;
   color: var(--muted);
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -712,7 +712,7 @@ a:focus-visible {
   margin-top: 9px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .recognition-row {
@@ -726,13 +726,13 @@ a:focus-visible {
 
 .recognition-row > span {
   color: var(--muted);
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .recognition-row p {
   margin: 0;
   color: var(--muted);
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .recognition-row strong {
@@ -752,7 +752,7 @@ a:focus-visible {
 .site-footer > p {
   margin: 0 0 36px;
   font-family: 'Manrope', sans-serif;
-  font-size: clamp(22px, 3.5vw, 36px);
+  font-size: clamp(20px, 3vw, 32px);
   letter-spacing: -0.05em;
 }
 
@@ -771,7 +771,7 @@ a:focus-visible {
 }
 
 .simpleicons-credit {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .footer-links {
@@ -873,7 +873,7 @@ a:focus-visible {
   }
 
   .intro-copy {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .intro-links {
@@ -919,12 +919,12 @@ a:focus-visible {
   .feature-topline {
     flex-direction: column;
     gap: 8px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .feature-card h2 {
     margin-top: 20px;
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .feature-content {
@@ -946,7 +946,7 @@ a:focus-visible {
   }
 
   .research-stats span {
-    font-size: 9px;
+    font-size: 16px;
     line-height: 1.4;
   }
 
@@ -988,7 +988,7 @@ a:focus-visible {
   }
 
   .experience-main h3 {
-    font-size: 19px;
+    font-size: 20px;
   }
 
   .hpg-photo {
