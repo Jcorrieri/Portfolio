@@ -1,17 +1,17 @@
 :root {
-  color: #1e2626;
-  background: #f7f7f3;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: #d1d5db;
+  background: #111827;
+  font-family: 'inter', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --ink: #1e2626;
-  --muted: #727b76;
-  --line: #dfe2dc;
-  --paper: #f7f7f3;
-  --green: #187bdb;
-  --orange: #4b74e8;
-  --mono: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ink: #ffffff;
+  --muted: #9ca3af;
+  --line: #374151;
+  --paper: #111827;
+  --green: #06b6d4;
+  --orange: #22d3ee;
+  --mono: 'inter', sans-serif;
 }
 
 * {
@@ -22,10 +22,42 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: #06b6d44d;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #374151;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
 body {
   min-width: 320px;
   margin: 0;
   font-size: 16px;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(#fff 1px, transparent 1px);
+  background-size: 24px 24px;
+  content: '';
+  opacity: 0.03;
+  pointer-events: none;
 }
 
 a {
@@ -54,7 +86,7 @@ a:focus-visible {
 }
 
 .wordmark {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -1.5px;
@@ -167,13 +199,13 @@ a:focus-visible {
   height: 7px;
   display: inline-block;
   border-radius: 50%;
-  background: #729477;
-  box-shadow: 0 0 0 4px #7294771c;
+  background: #06b6d4;
+  box-shadow: 0 0 0 4px #06b6d41c;
 }
 
 .intro h1 {
   margin: 0;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: clamp(68px, 9vw, 120px);
   line-height: 0.87;
   font-weight: 600;
@@ -199,7 +231,7 @@ a:focus-visible {
 .intro-copy {
   max-width: none;
   margin: 0;
-  color: #59615d;
+  color: #9ca3af;
   font-size: 20px;
   line-height: 1.7;
 }
@@ -265,8 +297,8 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 40px;
-  padding-top: 96px;
-  padding-bottom: 110px;
+  padding-top: 58px;
+  padding-bottom: 65px;
   border-top: 1px solid var(--line);
 }
 
@@ -278,7 +310,7 @@ a:focus-visible {
 
 .about h2 {
   margin: 0 0 22px;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: clamp(30px, 4.5vw, 52px);
   line-height: 1.13;
   font-weight: 500;
@@ -294,8 +326,8 @@ a:focus-visible {
 }
 
 .work-section {
-  padding: 57px 0 68px;
-  background: #eef0e9;
+  padding: 39px 0 44px;
+  background: #111827;
 }
 
 .section-heading {
@@ -332,7 +364,7 @@ a:focus-visible {
 .feature-card h2 {
   max-width: 850px;
   margin: 10px 0 12px;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: 24px;
   line-height: 1.08;
   font-weight: 500;
@@ -368,7 +400,7 @@ a:focus-visible {
 .feature-content p {
   max-width: 630px;
   margin: 0;
-  color: #59615d;
+  color: #9ca3af;
   font-size: 16px;
   line-height: 1.8;
 }
@@ -409,7 +441,7 @@ a:focus-visible {
 }
 
 .research-stats strong {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.06em;
@@ -476,7 +508,7 @@ a:focus-visible {
 }
 
 .paper-link:hover {
-  background: #eef0e9;
+  background: #1f2937;
 }
 
 .paper-icon {
@@ -501,8 +533,8 @@ a:focus-visible {
 }
 
 .experience-section {
-  padding-top: 69px;
-  padding-bottom: 75px;
+  padding-top: 45px;
+  padding-bottom: 48px;
 }
 
 .experience-section .section-heading,
@@ -527,7 +559,7 @@ a:focus-visible {
 
 .experience-main h3 {
   margin: 0 0 10px;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.04em;
@@ -555,8 +587,8 @@ a:focus-visible {
 
 .tags span {
   padding: 7px 11px;
-  color: #53615a;
-  background: #eceee8;
+  color: #d1d5db;
+  background: #1f2937;
   font-family: var(--mono);
   font-size: 14px;
 }
@@ -575,7 +607,7 @@ a:focus-visible {
 }
 
 .projects-section {
-  padding-bottom: 75px;
+  padding-bottom: 48px;
 }
 
 .project-grid {
@@ -649,7 +681,7 @@ a:focus-visible {
 
 .project-copy h3 {
   margin: 0 0 10px;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.05em;
@@ -673,15 +705,15 @@ a:focus-visible {
   padding: 18px 26px;
   display: flex;
   justify-content: flex-end;
-  color: #9ca39c;
-  background: #eceee8;
+  color: #6b7280;
+  background: #1f2937;
   font-family: var(--mono);
   font-size: 12px;
 }
 
 .recognition-section {
-  padding-top: 68px;
-  padding-bottom: 71px;
+  padding-top: 44px;
+  padding-bottom: 46px;
 }
 
 .recognition-images {
@@ -751,7 +783,7 @@ a:focus-visible {
 
 .site-footer > p {
   margin: 0 0 36px;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'inter', sans-serif;
   font-size: clamp(20px, 3vw, 32px);
   letter-spacing: -0.05em;
 }
@@ -892,9 +924,9 @@ a:focus-visible {
 
   .about {
     grid-template-columns: 1fr;
-    gap: 26px;
-    padding-top: 68px;
-    padding-bottom: 76px;
+    gap: 13px;
+    padding-top: 44px;
+    padding-bottom: 48px;
   }
 
   .about h2 {
@@ -902,7 +934,7 @@ a:focus-visible {
   }
 
   .work-section {
-    padding: 44px 0 48px;
+    padding: 32px 0 34px;
   }
 
   .section-heading {
@@ -969,8 +1001,8 @@ a:focus-visible {
 
   .experience-section,
   .recognition-section {
-    padding-top: 51px;
-    padding-bottom: 54px;
+    padding-top: 36px;
+    padding-bottom: 37px;
   }
 
   .recognition-images {
